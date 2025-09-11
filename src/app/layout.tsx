@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { motion } from "framer-motion";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
