@@ -21,7 +21,7 @@ export default function TypingEffect({ text }: { text: string }) {
             duration: 0.2,
             delay: index * 0.1,
             repeat: Infinity,
-            repeatDelay: 5,
+            repeatDelay: 3,
           }}
         >
           {letter}

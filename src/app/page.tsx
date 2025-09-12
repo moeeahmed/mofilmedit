@@ -33,7 +33,7 @@ export default function Home() {
           rel="noopener"
         >
           <Image
-            className="drop-shadow-2xl"
+            className="drop-shadow-2xl animate-glow"
             src="/mofilmedit.svg"
             alt="mofilmedit logo"
             width={180}
