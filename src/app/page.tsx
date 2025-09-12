@@ -9,7 +9,7 @@ export default function Home() {
     <div
       style={{
         backgroundImage:
-          'url("https://djpguts9gwm3x.cloudfront.net/DSC04663.jpg")',
+          'url("https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg")',
 
         backgroundColor: "#000",
         backgroundSize: "cover",
