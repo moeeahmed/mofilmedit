@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/validators/contact";
+import { ZodError } from "zod";
 
 // --- Optional: tiny in-memory rate limiter (per-IP) ---
 // NOTE: For serverless/edge it can reset across instances; use Upstash Redis for real prod needs.
@@ -21,7 +22,11 @@ function rateLimit(ip: string | null | undefined) {
   return true;
 }
 
-const resend = new Resend("re_QkjGzu73_GesYqRLh39hKuNau2fsY6ydc");
+function firstZodMessage(err: ZodError): string {
+  return err.issues[0]?.message ?? "Validation failed";
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: Request) {
   try {
@@ -66,7 +71,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Validation failed",
+          error: firstZodMessage(parsed.error),
           issues: parsed.error.flatten().fieldErrors,
         },
         { status: 400 }
@@ -81,19 +86,19 @@ export async function POST(req: Request) {
     }
 
     // Compose email
-    const to = process.env.CONTACT_TO!;
-    const from = process.env.CONTACT_FROM!;
-    // if (!process.env.RESEND_API_KEY || !to || !from) {
-    //   return NextResponse.json(
-    //     { ok: false, error: "Server not configured (email envs missing)" },
-    //     { status: 500 }
-    //   );
-    // }
+    const to = process.env.EMAIL_CONTACT_TO!;
+    const from = process.env.EMAIL_CONTACT_FROM!;
+    if (!process.env.RESEND_API_KEY || !to || !from) {
+      return NextResponse.json(
+        { ok: false, error: "Server not configured (email envs missing)" },
+        { status: 500 }
+      );
+    }
 
     const subject = `New contact form submission from ${name}`;
     const html = `
         <div style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', 'Helvetica Neue', Arial;">
-          <h2>New Contact Message</h2>
+          <h2>New Enquiry Message</h2>
           <p><strong>Name:</strong> ${escapeHtml(name)}</p>
           <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <p><strong>IP:</strong> ${escapeHtml(ip ?? "unknown")}</p>
@@ -103,16 +108,17 @@ export async function POST(req: Request) {
       `;
 
     const { error } = await resend.emails.send({
-      from: "enquiries@mofilmedit.co.uk",
-      to: "contact@mofilmedit.co.uk",
+      from: process.env.EMAIL_CONTACT_FROM!,
+      to: process.env.EMAIL_CONTACT_TO!,
       subject,
       replyTo: email, // so you can reply directly
       html,
     });
 
     if (error) {
+      console.error(error);
       return NextResponse.json(
-        { ok: false, error: "Failed to send email" },
+        { ok: false, error: "Email cannot be sent at this moment." },
         { status: 502 }
       );
     }
