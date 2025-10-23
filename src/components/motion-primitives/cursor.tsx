@@ -37,20 +37,63 @@ export function Cursor({
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const [isPointerFine, setIsPointerFine] = useState<boolean>(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    if (typeof window.matchMedia !== "function") {
+      return false;
+    }
+
+    return window.matchMedia("(pointer: fine)").matches;
+  });
   const [isVisible, setIsVisible] = useState(!attachToParent);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      cursorX.set(window.innerWidth / 2);
-      cursorY.set(window.innerHeight / 2);
+    if (typeof window === "undefined") {
+      return;
     }
+
+    if (typeof window.matchMedia !== "function") {
+      setIsPointerFine(false);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsPointerFine(event.matches);
+    };
+
+    setIsPointerFine(mediaQuery.matches);
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
   }, []);
 
   useEffect(() => {
-    if (!attachToParent) {
-      document.body.style.cursor = "none";
-    } else {
+    if (!isPointerFine || typeof window === "undefined") {
+      return;
+    }
+
+    cursorX.set(window.innerWidth / 2);
+    cursorY.set(window.innerHeight / 2);
+  }, [cursorX, cursorY, isPointerFine]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    if (!isPointerFine) {
       document.body.style.cursor = "auto";
+      return;
     }
 
     const updatePosition = (e: MouseEvent) => {
@@ -59,51 +102,63 @@ export function Cursor({
       onPositionChange?.(e.clientX, e.clientY);
     };
 
+    document.body.style.cursor = attachToParent ? "auto" : "none";
     document.addEventListener("mousemove", updatePosition);
 
     return () => {
+      document.body.style.cursor = "auto";
       document.removeEventListener("mousemove", updatePosition);
     };
-  }, [cursorX, cursorY, onPositionChange]);
+  }, [attachToParent, cursorX, cursorY, onPositionChange, isPointerFine]);
+
+  useEffect(() => {
+    if (!isPointerFine) {
+      setIsVisible(false);
+      return;
+    }
+
+    if (!attachToParent) {
+      setIsVisible(true);
+    }
+  }, [attachToParent, isPointerFine]);
 
   const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 });
   const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 });
 
   useEffect(() => {
-    const handleVisibilityChange = (visible: boolean) => {
-      setIsVisible(visible);
-    };
-
-    if (attachToParent && cursorRef.current) {
-      const parent = cursorRef.current.parentElement;
-      if (parent) {
-        parent.addEventListener("mouseenter", () => {
-          parent.style.cursor = "none";
-          handleVisibilityChange(true);
-        });
-        parent.addEventListener("mouseleave", () => {
-          parent.style.cursor = "auto";
-          handleVisibilityChange(false);
-        });
-      }
+    if (!attachToParent || !isPointerFine || !cursorRef.current) {
+      return;
     }
 
-    return () => {
-      if (attachToParent && cursorRef.current) {
-        const parent = cursorRef.current.parentElement;
-        if (parent) {
-          parent.removeEventListener("mouseenter", () => {
-            parent.style.cursor = "none";
-            handleVisibilityChange(true);
-          });
-          parent.removeEventListener("mouseleave", () => {
-            parent.style.cursor = "auto";
-            handleVisibilityChange(false);
-          });
-        }
-      }
+    const parent = cursorRef.current.parentElement;
+
+    if (!parent) {
+      return;
+    }
+
+    const handleMouseEnter = () => {
+      parent.style.cursor = "none";
+      setIsVisible(true);
     };
-  }, [attachToParent]);
+
+    const handleMouseLeave = () => {
+      parent.style.cursor = "auto";
+      setIsVisible(false);
+    };
+
+    parent.addEventListener("mouseenter", handleMouseEnter);
+    parent.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      parent.removeEventListener("mouseenter", handleMouseEnter);
+      parent.removeEventListener("mouseleave", handleMouseLeave);
+      parent.style.cursor = "auto";
+    };
+  }, [attachToParent, isPointerFine]);
+
+  if (!isPointerFine) {
+    return null;
+  }
 
   return (
     <motion.div

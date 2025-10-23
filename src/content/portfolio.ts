@@ -17,7 +17,7 @@ export const PORTFOLIO_CONTENT = [
     name: "Monzz x Platinum Services",
     description:
       "Platinum Services teamed up with Monzz, working together to inspire and guide students through the journey of getting into higher education",
-    img: "https://djpguts9gwm3x.cloudfront.net/Vt87Fs8MsCWvZESR.jpg",
+    img: "https://djpguts9gwm3x.cloudfront.net/6sqrFj3Kvb0HS51j.jpg",
     url: "https://www.instagram.com/reel/DM0e0mtIpjY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
   {
