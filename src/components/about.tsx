@@ -30,26 +30,42 @@ export default function ContentSection() {
   return (
     <section className="py-16 md:py-32" id="about">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
-        <div className="mx-auto max-w-xl space-y-6 text-center md:space-y-12">
+        {/* <div className="mx-auto w-full space-y-6 text-center md:space-y-12 flex justify-stretch">
           <ScrollView>
             <h2 className="text-balance text-4xl font-medium lg:text-5xl">
-              Who is MoFilmedIt?
+              MoFilmedIt
             </h2>
           </ScrollView>
           <ScrollView>
             <p>
-              MoFilmedIt was born from my passion for storytelling through film.
-              With an engineering background, I’ve always looked for creative
-              ways to solve problems and video became my outlet. What started as
-              curiosity turned into a drive to craft visuals that inspire,
-              connect, and leave a lasting impact.
+              Started with curiosity. A camera. And a need to tell stories that
+              feel real. For me, it was never about chasing perfection, it’s
+              about moments, energy, and truth. Every frame’s about catching
+              that one feeling you can’t recreate.
+            </p>
+          </ScrollView>
+        </div> */}
+
+        <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
+          <ScrollView>
+            <h2 className="text-4xl font-semibold italic lg:text-5xl ">
+              Why MoFilmedIt?
+            </h2>
+          </ScrollView>
+          <ScrollView>
+            <p className="max-w-sm sm:ml-auto italic text-right">
+              Started with curiosity. A camera. And a need to tell stories that
+              feel real. For me, it was never about chasing perfection, it’s
+              about moments, energy, and truth. Every frame’s about catching
+              that one feeling you can’t recreate.
             </p>
           </ScrollView>
         </div>
+
         <ScrollView>
           <Image
             className="rounded-(--radius) object-cover aspect-[16/9] w-full"
-            src="https://djpguts9gwm3x.cloudfront.net/52zgTgVTSJL9tMAs.JPG"
+            src="https://djpguts9gwm3x.cloudfront.net/52zgTgVTSJL9tMA.JPG"
             alt="team image"
             height="480"
             width="720"
