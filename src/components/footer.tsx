@@ -9,7 +9,7 @@ export default function FooterSection() {
   return (
     <footer className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollView>
+        <ScrollView viewMargin="0px">
           <Link
             href="/"
             aria-label="go home"
@@ -25,7 +25,7 @@ export default function FooterSection() {
             />
           </Link>
         </ScrollView>
-        <ScrollView stagger delay={0.1}>
+        <ScrollView stagger delay={0.1} viewMargin="0px">
           <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
             {FOOTER_LINKS.map((link, index) => (
               <div key={link.title}>
@@ -50,7 +50,7 @@ export default function FooterSection() {
             ))}
           </div>
         </ScrollView>
-        <ScrollView delay={0.15} viewMargin="0px 0px -20px 0px">
+        <ScrollView delay={0.15} viewMargin="0px">
           <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
             <Link
               href="https://www.instagram.com/_mofilmedit/"
@@ -94,7 +94,7 @@ export default function FooterSection() {
             </Link>
           </div>
         </ScrollView>
-        <ScrollView delay={0.2} viewMargin="0px 0px -20px 0px">
+        <ScrollView delay={0.2} viewMargin="0px">
           <span className="text-muted-foreground block text-center text-sm">
             {" "}
             © {new Date().getFullYear()} MoFilmedIt, All rights reserved

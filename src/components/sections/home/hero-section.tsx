@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
+import Image from "next/image";
 
 const transitionVariants = {
   item: {
@@ -79,15 +80,38 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 -z-10 size-full "></div>
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-        <div className="mx-auto text-center">
-          <TextEffect
+        <div className="mx-auto flex flex-col items-center text-center">
+          {/* <TextEffect
             preset="fade-in-blur"
             speedSegment={0.3}
             as="h1"
             className="mt-8 text-balance text-5xl font-bold md:text-7xl xl:text-[5.25rem]"
           >
-            MOFILMEDIT
-          </TextEffect>
+            MOFILMEDITdsdas
+          </TextEffect> */}
+          <AnimatedGroup
+            variants={{
+              container: {
+                visible: {
+                  transition: {
+                    staggerChildren: 0.3,
+                    delayChildren: 0.4,
+                  },
+                },
+              },
+              ...transitionVariants,
+            }}
+            className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
+          >
+            <Image
+              className="drop-shadow-2xl animate-glow"
+              src="/longlogo.svg"
+              alt="mofilmedit logo"
+              width={800}
+              height={800}
+              priority
+            />
+          </AnimatedGroup>
 
           <TextEffect
             per="line"
@@ -95,7 +119,7 @@ export default function HeroSection() {
             speedSegment={0.3}
             delay={0.5}
             as="p"
-            className="mx-auto mt-8 max-w-2xl text-balance text-lg"
+            className="mx-auto mt-8 max-w-2xl text-balance text-lg text-white"
           >
             Blending creativity and storytelling to craft cinematic visuals,
             compelling edits, and brand experiences that leave a lasting impact
@@ -120,7 +144,7 @@ export default function HeroSection() {
               className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
             >
               <Button asChild size="lg" className="rounded-xl px-5 text-base">
-                <Link href="#contact" target="_black">
+                <Link href="#contact">
                   <svg
                     fill="#000000"
                     height="200px"
