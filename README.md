@@ -1,36 +1,46 @@
-# Lume Studio - Next.js Template
+# mofilmedit – Videography Portfolio Website
 
-This project is a Next.js template built with TypeScript, designed for creating stunning websites with smooth animations and modern UI components.
+This is my **videography portfolio website**, built using a **Next.js template by [Lume Studio](https://lume.kohi.studio)**.  
+The site showcases my videography work and services, featuring smooth animations, clean design, and a modern user experience.
 
-## Getting Started
+---
 
-1.  **Install dependencies:**
+## 🚀 Getting Started
 
-    ```bash
-    pnpm install
-    ```
+1. **Install dependencies:**
 
-2.  **Run the development server:**
+   ```bash
+   pnpm install
+   ```
 
-    ```bash
-    pnpm dev
-    ```
+2. **Run the development server:**
 
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   pnpm dev
+   ```
 
-## Deployment
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the website locally.
+
+---
+
+## ☁️ Deployment
 
 ### Cloudflare Pages
 
-If you intend to deploy this project using Cloudflare Pages, please use the `cf-pages` branch. This branch contains configurations optimized for Cloudflare Pages deployment.
+If deploying to Cloudflare Pages, use the `cf-pages` branch — it includes configuration optimized for Cloudflare hosting.
 
-## Key Components
+---
+
+## 🧩 Key Component
 
 ### ScrollView Component [`src/components/scroll-view.tsx`](src/components/scroll-view.tsx)
 
-The `ScrollView` component is a utility component that triggers animations when an element becomes visible in the viewport. It's designed to enhance user experience by adding engaging visual effects as users scroll through the page.
+The `ScrollView` component handles scroll-based animations.  
+It triggers visual effects when elements appear in the viewport, creating smooth and engaging transitions throughout the site.
 
-## Technologies Used
+---
+
+## 🛠️ Technologies Used
 
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -38,10 +48,21 @@ The `ScrollView` component is a utility component that triggers animations when 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Motion.dev](https://motion.dev/)
 
-## License
+---
+
+## 📸 About mofilmedit
+
+**mofilmedit** is a creative videography brand focused on cinematic storytelling, sports visuals, and dynamic editing.  
+This website serves as a digital portfolio to showcase work, share upcoming projects, and connect with potential collaborators.
+
+---
+
+## 📄 License
 
 MIT
 
-## Full version
+---
 
-For the full version, go to https://lume.kohi.studio/full-version
+## 💡 Credits
+
+This website was built using the **Next.js TypeScript template by [Lume Studio](https://lume.kohi.studio)** — designed for creating modern, animated websites with smooth motion and a sleek UI.

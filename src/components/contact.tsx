@@ -103,11 +103,11 @@ export default function FeaturesSection() {
               <Card className="mx-auto mt-12 max-w-lg p-8 shadow-md sm:p-16 w-full">
                 <div>
                   <h3 className="text-lg font-semibold">
-                    Let&apos;s get you to the right place
+                    Ready to capture something a movie?
                   </h3>
                   <p className="mt-4 text-sm">
-                    Reach out to our sales team! We’re eager to learn more about
-                    how you plan to use our application.
+                    let’s talk more about how we can help you curate stunning
+                    visuals and tell powerful stories through videography.
                   </p>
                 </div>
 

@@ -99,11 +99,7 @@ export const HeroHeader = () => {
                     <span>Login</span>
                   </Link>
                 </Button> */}
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
+                <Button asChild size="sm" className={cn(isScrolled)}>
                   <Link href="#contact">
                     <span>Contact</span>
                   </Link>
