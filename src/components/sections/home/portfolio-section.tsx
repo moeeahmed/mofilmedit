@@ -17,18 +17,18 @@ export default function PortfolioSection() {
           <p className="max-w-sm sm:ml-auto italic">#MoviesOnly</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          {PORTFOLIO_CONTENT.map((item, index) => (
+          {PORTFOLIO_CONTENT.slice(0, 6).map((item, index) => (
             <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
               <PortfolioCard card={item} />
             </div>
           ))}
         </div>
-        {/* <div className="mt-20">
+        <div className="mt-20">
           <Link
-            href="#link"
+            href="/projects"
             className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
           >
-            <span className="text-foreground text-base">More Projects</span>
+            <span className="text-foreground text-base">More Videos</span>
             <span className="dark:border-background block h-8 w-1 border-l bg-white dark:bg-zinc-700"></span>
 
             <div className="bg-background group-hover:bg-muted size-8 overflow-hidden rounded-full duration-500 -rotate-45 ">
@@ -42,7 +42,7 @@ export default function PortfolioSection() {
               </div>
             </div>
           </Link>
-        </div> */}
+        </div>
       </div>
     </section>
   );
