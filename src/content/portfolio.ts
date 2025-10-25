@@ -41,4 +41,18 @@ export const PORTFOLIO_CONTENT = [
     img: "https://djpguts9gwm3x.cloudfront.net/ltF6tVRcIzI6KF8i.jpg",
     url: "https://www.instagram.com/reel/DOY6aJZiF1o/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
+  {
+    name: "Bham UTD X Vesey Nations Cup",
+    description:
+      "6 nations, one city, one beautiful game. Custom national jerseys, real pride, pure football energy.",
+    img: "https://djpguts9gwm3x.cloudfront.net/VRJMrb0ec4ZUP8EL.jpg",
+    url: "https://www.instagram.com/reel/DMdh8obKEeS/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
+    name: "Ibraheem Spider Sulaimaan🕷️",
+    description:
+      "Ibraheem ‘Spider’ Sulaimaan sharpens his craft at the open training session ahead of his 7th fight. Focused, Hungry and Ready for war.",
+    img: "https://djpguts9gwm3x.cloudfront.net/WFa4Gk774zzDLlWn.jpg",
+    url: "https://www.instagram.com/reel/DEnj_qDsMXU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
 ];
