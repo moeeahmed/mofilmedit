@@ -4,7 +4,7 @@ export const PORTFOLIO_CONTENT = [
     description:
       "Top Baller x Deestroying U16 1v1 event. The next generation of football talent go head-to-head, showcasing skill, flair, and passion in a high-energy competition.",
     img: "https://djpguts9gwm3x.cloudfront.net/4j74vAYY0dBA4M9r.jpg",
-    url: "#",
+    url: "https://www.instagram.com/reel/DQpY0D5iC0Q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
   {
     name: "Puma X Represent Event",
