@@ -4,8 +4,8 @@ import TeamSection from "@/components/team";
 export default function AboutUsSection() {
   return (
     <>
-      <AboutSection />
-      {/* <TeamSection /> */}
+      {/* <AboutSection /> */}
+      <TeamSection />
     </>
   );
 }

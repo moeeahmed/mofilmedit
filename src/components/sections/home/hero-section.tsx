@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import Image from "next/image";
+import WorkedWith from "@/components/worked-with";
 
 const transitionVariants = {
   item: {
