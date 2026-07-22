@@ -7,6 +7,27 @@ export const PORTFOLIO_CONTENT = [
     url: "https://www.instagram.com/reel/Da-WyvCNDF_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
   {
+    name: "Future Culture X World Cup Screening",
+    description:
+      "Promo for the World Cup Activation event hosted by Future Culture",
+    img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
+    url: "https://www.youtube.com/watch?v=-BoMOUpRX40",
+  },
+  {
+    name: "Youtube Series | Road to London Marathon",
+    description:
+      "3 part series following the journey of a Rudy (Founder of RoCUP and Contraband) preparing for the London Marathon, showcasing training, nutrition, and mental preparation.",
+    img: "https://djpguts9gwm3x.cloudfront.net/a2OIV224N1MW3vrz.jpg",
+    url: "https://youtu.be/hgfCoM0LVoo?si=3dDKPkALrIRRBLRL",
+  },
+  {
+    name: "Endure Run Club | Birmingham Half Marathon Sign up Activation",
+    description:
+      "Promotional piece for the Endure Run Club to get members involved in the Birmingham Half",
+    img: "https://djpguts9gwm3x.cloudfront.net/lJddT9vtyUml2Em6.jpg",
+    url: "https://www.instagram.com/reel/DWZ7q7BCubq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
     name: "Top Baller X Deestroying",
     description:
       "Top Baller x Deestroying U16 1v1 event. The next generation of football talent go head-to-head, showcasing skill, flair, and passion in a high-energy competition.",

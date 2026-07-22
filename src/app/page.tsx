@@ -12,7 +12,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <PortfolioSection />
-      <PhotographyCarouselSection />
+      {/* <PhotographyCarouselSection /> */}
       {/* <AboutUsSection /> */}
       {/* <WorkedWith /> */}
       <ContactSection />
