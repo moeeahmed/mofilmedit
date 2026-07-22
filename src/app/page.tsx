@@ -5,7 +5,6 @@ import ServicesSection from "@/components/sections/home/services";
 import PhotographyCarouselSection from "@/components/sections/home/photography-carousel";
 import FooterSection from "@/components/footer";
 import ContactSection from "@/components/contact";
-import WorkedWith from "@/components/worked-with";
 
 export default function Home() {
   return (
