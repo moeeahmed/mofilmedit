@@ -39,8 +39,9 @@ export default function RootLayout({
         >
           <HeroHeader />
           {children}
+
           <Analytics />
-          <SpeedInsights
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
