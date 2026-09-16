@@ -51,7 +51,11 @@ export const HeroHeader = () => {
               <button
                 onClick={() => setMenuState(!menuState)}
                 aria-label={menuState == true ? "Close Menu" : "Open Menu"}
-                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+                className={cn(
+                  "relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden",
+                  !isScrolled &&
+                    "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
+                )}
               >
                 <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
                 <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
@@ -64,7 +68,11 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className=" hover:text-accent-foreground block duration-150"
+                      className={cn(
+                        "block duration-150 text-white/90 hover:text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]",
+                        isScrolled &&
+                          "text-foreground/90 hover:text-accent-foreground drop-shadow-none"
+                      )}
                     >
                       <span>{item.name}</span>
                     </Link>
