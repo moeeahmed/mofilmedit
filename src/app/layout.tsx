@@ -16,9 +16,60 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://mofilmedit.co.uk";
+const description =
+  "mofilmedit is a UK-based videography brand crafting cinematic storytelling, sports visuals, and brand films that leave a lasting impact.";
+
 export const metadata: Metadata = {
-  title: "MoFilmedIt",
-  description: "Making Movies Only",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "mofilmedit | Cinematic Videography & Editing",
+    template: "%s | mofilmedit",
+  },
+  description,
+  keywords: [
+    "mofilmedit",
+    "videography",
+    "video editing",
+    "cinematic video",
+    "sports videography",
+    "event videography",
+    "UK videographer",
+  ],
+  authors: [{ name: "mofilmedit" }],
+  creator: "mofilmedit",
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "mofilmedit | Cinematic Videography & Editing",
+    description,
+    siteName: "mofilmedit",
+    images: [
+      {
+        url: "https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg",
+        width: 1200,
+        height: 630,
+        alt: "mofilmedit",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "mofilmedit | Cinematic Videography & Editing",
+    description,
+    images: ["https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

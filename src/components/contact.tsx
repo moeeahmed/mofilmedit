@@ -33,14 +33,14 @@ export default function FeaturesSection() {
       const data = await res.json();
 
       if (!res.ok || !data.ok) {
-        console.log(data);
         throw new Error(data.error || "Failed to send message");
       }
 
       toast.success("Message has been sent");
       form.reset();
-    } catch (err: any) {
-      toast.error(err.message || "Something went wrong");
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Something went wrong";
+      toast.error(message);
     } finally {
       setTimeout(() => setStatus("idle"), 2000); // auto reset after 5s
     }

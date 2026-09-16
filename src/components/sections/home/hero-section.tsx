@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import Image from "next/image";
-import WorkedWith from "@/components/worked-with";
 
 const transitionVariants = {
   item: {
@@ -65,31 +64,10 @@ export default function HeroSection() {
           },
         }}
         className="absolute inset-0 -z-20"
-      >
-        {/* <div className="absolute inset-2 -z-10 h-full overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
-          <video
-            autoPlay
-            loop
-            muted
-            preload="auto"
-            className="size-full -scale-x-100 object-cover opacity-50 invert-0 dark:opacity-35 dark:invert "
-          >
-            <source src="/hero-light.mp4" type="video/mp4" />
-          </video>
-        </div> */}
-      </AnimatedGroup>
-
-      <div className="absolute inset-0 -z-10 size-full "></div>
+      />
+      <div className="absolute inset-0 -z-10 size-full" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="mx-auto flex flex-col items-center text-center">
-          {/* <TextEffect
-            preset="fade-in-blur"
-            speedSegment={0.3}
-            as="h1"
-            className="mt-8 text-balance text-5xl font-bold md:text-7xl xl:text-[5.25rem]"
-          >
-            MOFILMEDITdsdas
-          </TextEffect> */}
           <AnimatedGroup
             variants={{
               container: {
@@ -178,19 +156,6 @@ export default function HeroSection() {
           </AnimatedGroup>
         </div>
       </div>
-      <AnimatedGroup
-        variants={{
-          container: {
-            visible: {
-              transition: {
-                staggerChildren: 0.05,
-                delayChildren: 0.85,
-              },
-            },
-          },
-          ...transitionVariants,
-        }}
-      ></AnimatedGroup>
     </section>
   );
 }

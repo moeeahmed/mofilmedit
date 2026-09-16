@@ -80,6 +80,7 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
+                        onClick={() => setMenuState(false)}
                         className="text-muted-foreground hover:text-accent-foreground block duration-150"
                       >
                         <span>{item.name}</span>
@@ -89,18 +90,8 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                {/* <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="#">
-                    <span>Login</span>
-                  </Link>
-                </Button> */}
                 <Button asChild size="sm" className={cn(isScrolled)}>
-                  <Link href="#contact">
+                  <Link href="/#contact" onClick={() => setMenuState(false)}>
                     <span>Contact</span>
                   </Link>
                 </Button>
