@@ -26,15 +26,15 @@ export default function ServicesSection() {
           </ScrollView>
         </div>
 
-        <div className="mt-16 md:mt-24">
+        <div className="mt-16 border-b md:mt-24">
           {SERVICES_LIST.map((service, index) => (
             <div
               key={service.name}
-              className="grid grid-cols-1 gap-8 border-t py-12 first:border-t md:grid-cols-12 md:gap-10"
+              className="group grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-12 md:gap-10"
             >
               <div className="md:col-span-1">
                 <ScrollView>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-4xl font-light text-muted-foreground/30 md:text-5xl">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </ScrollView>
@@ -45,14 +45,12 @@ export default function ServicesSection() {
                   <h3 className="text-2xl font-medium">{service.name}</h3>
                 </ScrollView>
                 <ScrollView delay={0.05}>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
                     {service.tags.join(" · ")}
                   </p>
                 </ScrollView>
                 <ScrollView delay={0.1}>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
+                  <p className="text-foreground/70">{service.description}</p>
                 </ScrollView>
               </div>
 
@@ -66,7 +64,7 @@ export default function ServicesSection() {
                       width={720}
                       loading="lazy"
                       sizes="(min-width: 768px) 55vw, 100vw"
-                      className="size-full object-cover object-top"
+                      className="size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
                 </ScrollView>
