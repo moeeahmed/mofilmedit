@@ -40,12 +40,12 @@ export const HeroHeader = () => {
             onClick={() => setMenuState(false)}
           >
             <Image
-              src="/mofilmedit.svg"
+              src="/longlogo.svg"
               alt="mofilmedit"
-              width={46}
+              width={337}
               height={32}
               priority
-              className="h-8 w-auto"
+              className="h-5 w-auto md:h-6"
             />
           </Link>
 

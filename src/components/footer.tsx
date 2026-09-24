@@ -12,11 +12,11 @@ export default function FooterSection() {
         <ScrollView viewMargin="0px">
           <Link href="/" aria-label="go home" className="mx-auto block w-fit">
             <Image
-              src="/mofilmedit.svg"
+              src="/longlogo.svg"
               alt="mofilmedit"
-              width={57}
+              width={421}
               height={40}
-              className="h-10 w-auto"
+              className="h-6 w-auto"
             />
           </Link>
         </ScrollView>
