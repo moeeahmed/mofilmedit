@@ -54,7 +54,7 @@ export default function HeroSection() {
             }}
           >
             <p className="text-xs uppercase tracking-[0.3em] text-white/70">
-              Cinematic Videography Studio
+              Cinematic Videographer
             </p>
 
             <TextEffect
@@ -69,8 +69,8 @@ export default function HeroSection() {
             </TextEffect>
 
             <p className="mt-6 max-w-lg text-balance text-white/70">
-              Compelling edits and brand experiences that leave a lasting
-              impact — from sports and events to brand films.
+              Compelling edits and brand experiences that leave a lasting impact
+              — from sports and events to brand films.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-8">
