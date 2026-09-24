@@ -1,115 +1,78 @@
-import { InView } from "@/components/motion-primitives/in-view";
-import { ScrollView, ScrollViewStaggerWrapper } from "@/components/scroll-view";
-import { Badge } from "@/components/ui/badge";
+import { ScrollView } from "@/components/scroll-view";
 import { SERVICES_LIST } from "@/content/services";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ServicesSection() {
   return (
-    <section className="py-16 md:py-32" id="services">
-      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
-        <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
+    <section className="py-24 md:py-40" id="services">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        <div className="max-w-2xl">
           <ScrollView>
-            <h2 className="text-4xl font-medium lg:text-5xl">
-              Videos That Works for You
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              What I do
+            </p>
+          </ScrollView>
+          <ScrollView delay={0.1}>
+            <h2 className="mt-4 text-4xl font-medium leading-tight md:text-5xl">
+              Videos that work for you.
             </h2>
           </ScrollView>
-          <ScrollView delay={0.2}>
-            <p>
-              At <span className="italic font-bold">MoFilmedIt</span>, I create
-              videos that are more than just visually captivating. They tell
-              stories, connect with your audience, and deliver real impact.{" "}
-              <br /> Whether you’re starting from scratch or looking to elevate
-              your existing brand, <br /> I’ve got you covered.
+          <ScrollView delay={0.15}>
+            <p className="mt-6 text-muted-foreground">
+              At mofilmedit, I create videos that are more than just visually
+              captivating — they tell stories, connect with your audience,
+              and deliver real impact.
             </p>
           </ScrollView>
         </div>
-        <div className="mt-12 md:mt-24">
-          <div className="space-y-10">
-            {SERVICES_LIST.map((service, index) => (
-              <div
-                key={service.name}
-                className="group overflow-hidden border-b py-10"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-                  <div className="self-end lg:col-span-2">
-                    <div className="flex flex-col gap-8 ">
-                      <div className="space-y-4">
-                        <ScrollView>
-                          <h3 className="text-title text-2xl font-medium">
-                            {service.name}
-                          </h3>
-                        </ScrollView>
 
-                        <ScrollView stagger delay={0.04}>
-                          <div>
-                            {service.tags.map((tag, index) => (
-                              <div key={index} className="inline-block">
-                                <ScrollViewStaggerWrapper>
-                                  <Badge
-                                    className="mr-2 mb-2"
-                                    variant="secondary"
-                                  >
-                                    {tag}
-                                  </Badge>
-                                </ScrollViewStaggerWrapper>
-                              </div>
-                            ))}
-                          </div>
-                        </ScrollView>
-                      </div>
-                      <ScrollView delay={0.04}>
-                        <p className="text-muted-foreground">
-                          {service.description}
-                        </p>
-                      </ScrollView>
-                    </div>
-                  </div>
-                  <div className=" lg:col-span-3">
-                    <InView
-                      variants={{
-                        hidden: {
-                          opacity: 0,
-                          y: 20,
-                          filter: "blur(14px)",
-                          scale: 0.5,
-                          originX: 0,
-                          originY: 0,
-                        },
-                        visible: {
-                          opacity: 1,
-                          scale: 1,
-                          y: 0,
-                          filter: "blur(0px)",
-                          transition: {
-                            delay: 0.01,
-                            duration: 0.5,
-                          },
-                        },
-                      }}
-                      viewOptions={{
-                        margin: "0px 0px -250px 0px",
-                        once: true,
-                      }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      <Link href={service.url}>
-                        <Image
-                          src={service.img}
-                          alt={service.name}
-                          height="480"
-                          width="720"
-                          loading="lazy"
-                          className=" object-cover object-top  transition-all duration-500 w-full  aspect-[16/9]"
-                        />
-                      </Link>
-                    </InView>
-                  </div>
-                </div>
+        <div className="mt-16 md:mt-24">
+          {SERVICES_LIST.map((service, index) => (
+            <div
+              key={service.name}
+              className="grid grid-cols-1 gap-8 border-t py-12 first:border-t md:grid-cols-12 md:gap-10"
+            >
+              <div className="md:col-span-1">
+                <ScrollView>
+                  <span className="text-sm text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </ScrollView>
               </div>
-            ))}
-          </div>
+
+              <div className="flex flex-col gap-4 md:col-span-4">
+                <ScrollView>
+                  <h3 className="text-2xl font-medium">{service.name}</h3>
+                </ScrollView>
+                <ScrollView delay={0.05}>
+                  <p className="text-sm text-muted-foreground">
+                    {service.tags.join(" · ")}
+                  </p>
+                </ScrollView>
+                <ScrollView delay={0.1}>
+                  <p className="text-muted-foreground">
+                    {service.description}
+                  </p>
+                </ScrollView>
+              </div>
+
+              <div className="md:col-span-7">
+                <ScrollView delay={0.1}>
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={service.img}
+                      alt={service.name}
+                      height={480}
+                      width={720}
+                      loading="lazy"
+                      sizes="(min-width: 768px) 55vw, 100vw"
+                      className="size-full object-cover object-top"
+                    />
+                  </div>
+                </ScrollView>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

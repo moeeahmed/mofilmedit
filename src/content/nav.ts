@@ -8,7 +8,7 @@ export const NAV_LINKS = [
     href: "/#services",
   },
   {
-    name: "Portfolio",
-    href: "/#portfolio",
+    name: "Work",
+    href: "/projects",
   },
 ];

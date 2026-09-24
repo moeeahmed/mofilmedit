@@ -3,30 +3,22 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
-import Image from "next/image";
 
 export default function FooterSection() {
   return (
-    <footer className="py-16 md:py-32">
+    <footer className="border-t py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollView viewMargin="0px">
           <Link
             href="/"
             aria-label="go home"
-            className="mx-auto block size-fit"
+            className="mx-auto block w-fit text-sm font-medium uppercase tracking-[0.25em]"
           >
-            <Image
-              className="drop-shadow-2xl animate-glow"
-              src="/mofilmedit.svg"
-              alt="mofilmedit logo"
-              width={50}
-              height={50}
-              priority
-            />
+            mofilmedit
           </Link>
         </ScrollView>
         <ScrollView stagger delay={0.1} viewMargin="0px">
-          <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+          <div className="my-8 flex flex-wrap justify-center gap-6 text-xs uppercase tracking-[0.15em]">
             {FOOTER_LINKS.map((link, index) => (
               <div key={link.title}>
                 <motion.div
@@ -41,7 +33,7 @@ export default function FooterSection() {
                 >
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary block duration-150"
+                    className="text-muted-foreground hover:text-foreground block duration-150"
                   >
                     <span>{link.title}</span>
                   </Link>

@@ -1,11 +1,9 @@
 "use client";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/content/nav";
-import Image from "next/image";
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
@@ -18,95 +16,87 @@ export const HeroHeader = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const linkClasses = cn(
+    "text-xs uppercase tracking-[0.2em] duration-150 text-white/80 hover:text-white",
+    isScrolled && "text-foreground/70 hover:text-foreground"
+  );
+
   return (
     <header>
       <nav
         data-state={menuState && "active"}
-        className="fixed z-20 w-full px-2"
+        className={cn(
+          "fixed z-20 w-full transition-colors duration-300",
+          isScrolled && "bg-background/80 backdrop-blur-md border-b"
+        )}
       >
-        <div
-          className={cn(
-            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
-            isScrolled &&
-              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
-          )}
-        >
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-            <div className="flex w-full justify-between lg:w-auto">
-              <Link
-                href="/"
-                aria-label="home"
-                className="flex items-center space-x-2"
-              >
-                <Image
-                  className="drop-shadow-2xl animate-glow"
-                  src="/mofilmedit.svg"
-                  alt="mofilmedit logo"
-                  width={50}
-                  height={50}
-                  priority
-                />
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-12">
+          <Link
+            href="/"
+            aria-label="home"
+            className={cn(
+              "text-sm font-medium uppercase tracking-[0.25em] text-white",
+              isScrolled && "text-foreground"
+            )}
+            onClick={() => setMenuState(false)}
+          >
+            mofilmedit
+          </Link>
+
+          <button
+            onClick={() => setMenuState(!menuState)}
+            aria-label={menuState ? "Close Menu" : "Open Menu"}
+            className={cn(
+              "relative z-20 -m-2.5 block cursor-pointer p-2.5 lg:hidden text-white",
+              isScrolled && "text-foreground"
+            )}
+          >
+            {menuState ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+
+          <ul className="hidden lg:flex lg:items-center lg:gap-10">
+            {NAV_LINKS.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className={linkClasses}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/#contact" className={linkClasses}>
+                Contact
               </Link>
-
-              <button
-                onClick={() => setMenuState(!menuState)}
-                aria-label={menuState == true ? "Close Menu" : "Open Menu"}
-                className={cn(
-                  "relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden",
-                  !isScrolled &&
-                    "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
-                )}
-              >
-                <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
-                <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
-              </button>
-            </div>
-
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-              <ul className="flex gap-8 text-sm">
-                {NAV_LINKS.map((item, index) => (
-                  <li key={index}>
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "block duration-150 text-white/90 hover:text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]",
-                        isScrolled &&
-                          "text-foreground/90 hover:text-accent-foreground drop-shadow-none"
-                      )}
-                    >
-                      <span>{item.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
-              <div className="lg:hidden">
-                <ul className="space-y-6 text-base">
-                  {NAV_LINKS.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        onClick={() => setMenuState(false)}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                      >
-                        <span>{item.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button asChild size="sm" className={cn(isScrolled)}>
-                  <Link href="/#contact" onClick={() => setMenuState(false)}>
-                    <span>Contact</span>
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
+
+        {menuState && (
+          <div className="bg-background border-t px-6 py-8 lg:hidden">
+            <ul className="flex flex-col gap-6">
+              {NAV_LINKS.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuState(false)}
+                    className="text-foreground text-sm uppercase tracking-[0.2em]"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/#contact"
+                  onClick={() => setMenuState(false)}
+                  className="text-foreground text-sm uppercase tracking-[0.2em]"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
     </header>
   );

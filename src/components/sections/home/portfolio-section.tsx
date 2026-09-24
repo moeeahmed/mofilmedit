@@ -1,47 +1,41 @@
 import PortfolioCard from "@/components/portfolio-card";
+import { ScrollView } from "@/components/scroll-view";
 import { PORTFOLIO_CONTENT } from "@/content/portfolio";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function PortfolioSection() {
   return (
-    <section
-      className="py-16 md:py-32 bg-gray-50 dark:bg-transparent"
-      id="portfolio"
-    >
-      <div className="mx-auto max-w-5xl space-y-12 px-6">
-        <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
-          <h2 className="text-4xl font-semibold italic lg:text-5xl">
-            My Lens, Your Story, One Cinematic Vision
-          </h2>
-          <p className="max-w-sm sm:ml-auto italic">#MoviesOnly</p>
+    <section className="py-24 md:py-40" id="portfolio">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        <div className="flex flex-col gap-4 border-b pb-12 md:flex-row md:items-end md:justify-between">
+          <div>
+            <ScrollView>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Selected work
+              </p>
+            </ScrollView>
+            <ScrollView delay={0.1}>
+              <h2 className="mt-4 text-4xl font-medium md:text-5xl">
+                My lens, your story.
+              </h2>
+            </ScrollView>
+          </div>
+          <ScrollView delay={0.15}>
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+            >
+              View all work
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </ScrollView>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          {PORTFOLIO_CONTENT.slice(0, 6).map((item, index) => (
-            <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-              <PortfolioCard card={item} />
-            </div>
-          ))}
-        </div>
-        <div className="mt-20">
-          <Link
-            href="/projects"
-            className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
-          >
-            <span className="text-foreground text-base">More Videos</span>
-            <span className="dark:border-background block h-8 w-1 border-l bg-white dark:bg-zinc-700"></span>
 
-            <div className="bg-background group-hover:bg-muted size-8 overflow-hidden rounded-full duration-500 -rotate-45 ">
-              <div className="flex w-16 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                <span className="flex size-8">
-                  <ArrowRight className="m-auto size-4" />
-                </span>
-                <span className="flex size-8">
-                  <ArrowRight className="m-auto size-4" />
-                </span>
-              </div>
-            </div>
-          </Link>
+        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2">
+          {PORTFOLIO_CONTENT.slice(0, 6).map((item, index) => (
+            <PortfolioCard key={index} card={item} />
+          ))}
         </div>
       </div>
     </section>

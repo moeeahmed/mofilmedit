@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, PhoneCall } from "lucide-react";
+import { Mail, PhoneCall, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import { ScrollView } from "./scroll-view";
 import toast, { Toaster } from "react-hot-toast";
@@ -15,7 +14,6 @@ export default function FeaturesSection() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,52 +37,55 @@ export default function FeaturesSection() {
       toast.success("Message has been sent");
       form.reset();
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Something went wrong";
+      const message =
+        err instanceof Error ? err.message : "Something went wrong";
       toast.error(message);
     } finally {
-      setTimeout(() => setStatus("idle"), 2000); // auto reset after 5s
+      setTimeout(() => setStatus("idle"), 2000);
     }
   }
 
+  const fieldClasses =
+    "rounded-none border-x-0 border-t-0 border-b border-input bg-transparent px-0 shadow-none focus-visible:ring-0 focus-visible:border-foreground";
+
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-32 bg-gray-50 dark:bg-transparent"
-    >
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
-          {/* LEFT INFO */}
-          <div className="lg:col-span-2">
-            <div className="md:pr-6 lg:pr-0">
-              <ScrollView>
-                <h2 className="text-4xl font-semibold lg:text-5xl">
-                  Get in touch
-                </h2>
-              </ScrollView>
-              <ScrollView>
-                <p className="mt-6">
-                  I&apos;d love to hear from you! Feel free to reach out to me
-                  for any inquiries or to schedule a call.
-                </p>
-              </ScrollView>
-            </div>
+    <section id="contact" className="py-24 md:py-40">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div>
+            <ScrollView>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Get in touch
+              </p>
+            </ScrollView>
+            <ScrollView delay={0.1}>
+              <h2 className="mt-4 text-4xl font-medium md:text-5xl">
+                Ready to capture something?
+              </h2>
+            </ScrollView>
+            <ScrollView delay={0.15}>
+              <p className="mt-6 max-w-md text-muted-foreground">
+                I&apos;d love to hear from you. Reach out for any inquiries or
+                to schedule a call.
+              </p>
+            </ScrollView>
             <ScrollView delay={0.2}>
-              <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
+              <ul className="mt-10 space-y-4 border-t pt-6">
                 <li>
                   <Link
                     href="mailto:contact@mofilmedit.co.uk"
-                    className="hover:text-accent-foreground"
+                    className="inline-flex items-center gap-3 text-sm hover:text-muted-foreground"
                   >
-                    <Mail className="size-5 mr-2 inline" />
+                    <Mail className="size-4" />
                     <span>contact@mofilmedit.co.uk</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="tel:+447931041966"
-                    className="hover:text-accent-foreground"
+                    className="inline-flex items-center gap-3 text-sm hover:text-muted-foreground"
                   >
-                    <PhoneCall className="size-5 mr-2 inline" />
+                    <PhoneCall className="size-4" />
                     <span>+44 7931 041966</span>
                   </Link>
                 </li>
@@ -92,59 +93,47 @@ export default function FeaturesSection() {
             </ScrollView>
           </div>
 
-          {/* RIGHT FORM */}
-          <div className="lg:col-span-3">
-            <ScrollView>
-              <Toaster
-                containerStyle={{
-                  position: "relative",
-                }}
+          <ScrollView>
+            <Toaster containerStyle={{ position: "relative" }} />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <input
+                type="text"
+                name="website"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
               />
-              <Card className="mx-auto mt-12 max-w-lg p-8 shadow-md sm:p-16 w-full">
-                <div>
-                  <h3 className="text-lg font-semibold">
-                    Ready to capture something a movie?
-                  </h3>
-                  <p className="mt-4 text-sm">
-                    let’s talk more about how we can help you curate stunning
-                    visuals and tell powerful stories through videography.
-                  </p>
-                </div>
 
-                <form
-                  onSubmit={handleSubmit}
-                  className="**:[&>label]:block mt-12 space-y-6 *:space-y-3"
-                >
-                  {/* Honeypot */}
-                  <input
-                    type="text"
-                    name="website"
-                    className="hidden"
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Full name
+                </Label>
+                <Input type="text" id="name" name="name" required className={fieldClasses} />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Email
+                </Label>
+                <Input type="email" id="email" name="email" required className={fieldClasses} />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="msg" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Message
+                </Label>
+                <Textarea id="msg" name="message" rows={3} required className={fieldClasses} />
+              </div>
 
-                  <div>
-                    <Label htmlFor="name">Full name</Label>
-                    <Input type="text" id="name" name="name" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input type="email" id="email" name="email" required />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="msg">Message</Label>
-                    <Textarea id="msg" name="message" rows={3} required />
-                  </div>
-
-                  <Button type="submit" disabled={status === "loading"}>
-                    {status === "loading" ? "Sending..." : "Submit"}
-                  </Button>
-                </form>
-              </Card>
-            </ScrollView>
-          </div>
+              <Button
+                type="submit"
+                variant="ghost"
+                disabled={status === "loading"}
+                className="group h-auto gap-2 rounded-none border-b border-foreground/40 px-0 pb-1 text-sm uppercase tracking-[0.2em] hover:bg-transparent hover:border-foreground"
+              >
+                {status === "loading" ? "Sending..." : "Submit"}
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </form>
+          </ScrollView>
         </div>
       </div>
     </section>
