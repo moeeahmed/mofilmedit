@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
@@ -35,13 +36,17 @@ export const HeroHeader = () => {
           <Link
             href="/"
             aria-label="home"
-            className={cn(
-              "text-sm font-medium uppercase tracking-[0.25em] text-white",
-              isScrolled && "text-foreground"
-            )}
+            className="block"
             onClick={() => setMenuState(false)}
           >
-            mofilmedit
+            <Image
+              src="/mofilmedit.svg"
+              alt="mofilmedit"
+              width={46}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
           </Link>
 
           <button

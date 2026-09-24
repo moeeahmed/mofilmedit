@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
@@ -9,12 +10,14 @@ export default function FooterSection() {
     <footer className="border-t py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollView viewMargin="0px">
-          <Link
-            href="/"
-            aria-label="go home"
-            className="mx-auto block w-fit text-sm font-medium uppercase tracking-[0.25em]"
-          >
-            mofilmedit
+          <Link href="/" aria-label="go home" className="mx-auto block w-fit">
+            <Image
+              src="/mofilmedit.svg"
+              alt="mofilmedit"
+              width={57}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
         </ScrollView>
         <ScrollView stagger delay={0.1} viewMargin="0px">
