@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV !== "production";
 // 'unsafe-inline' scripts are required by Next's inline bootstrap unless nonces are used.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://challenges.cloudflare.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://djpguts9gwm3x.cloudfront.net https://res.cloudinary.com",
   "font-src 'self' data:",
