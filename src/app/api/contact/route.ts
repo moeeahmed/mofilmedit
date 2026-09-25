@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/validators/contact";
 import { ZodError } from "zod";
+import { buildContactEmail } from "@/lib/email/contact-email";
 
 // Best-effort in-memory limiter: resets when a serverless instance recycles.
 // Use a shared store (e.g. Upstash Redis) for stronger guarantees.
@@ -145,16 +146,7 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(apiKey);
-    const subject = `New contact form submission from ${name.replace(/[\r\n]+/g, " ")}`;
-    const html = `
-        <div style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', 'Helvetica Neue', Arial;">
-          <h2>New Enquiry Message</h2>
-          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-          <hr />
-          <p style="white-space: pre-wrap">${escapeHtml(message)}</p>
-        </div>
-      `;
+    const { subject, html, text } = buildContactEmail({ name, email, message });
 
     const { error } = await resend.emails.send({
       from,
@@ -162,6 +154,7 @@ export async function POST(req: Request) {
       subject,
       replyTo: email, // so you can reply directly
       html,
+      text,
     });
 
     if (error) {
@@ -180,13 +173,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-}
-
-function escapeHtml(s: string) {
-  return s
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
 }
