@@ -6,6 +6,7 @@ import {
   SITE_DESCRIPTION,
   SOCIAL_LINKS,
   SERVICE_CITIES,
+  SITE_PHONE,
 } from "@/lib/site";
 import AboutUsSection from "@/components/sections/home/about-section";
 import HeroSection from "@/components/sections/home/hero-section";
@@ -40,6 +41,7 @@ const structuredData = {
       logo: `${SITE_URL}/apple-touch-icon.png`,
       image: `${SITE_URL}/opengraph-image`,
       email: "contact@mofilmedit.co.uk",
+      telephone: SITE_PHONE,
       areaServed: [
         ...SERVICE_CITIES.map((name) => ({ "@type": "City", name })),
         { "@type": "Country", name: "United Kingdom" },
