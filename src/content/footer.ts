@@ -15,4 +15,8 @@ export const FOOTER_LINKS = [
     title: "Contact",
     href: "/#contact",
   },
+  {
+    title: "Privacy",
+    href: "/privacy",
+  },
 ];
