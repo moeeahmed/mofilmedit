@@ -4,15 +4,19 @@ export const FOOTER_LINKS = [
     href: "/",
   },
   {
-    title: "About",
-    href: "#about",
-  },
-  {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
-    title: "Portfolio",
-    href: "#portfolio",
+    title: "Work",
+    href: "/projects",
+  },
+  {
+    title: "Contact",
+    href: "/#contact",
+  },
+  {
+    title: "Privacy",
+    href: "/privacy",
   },
 ];

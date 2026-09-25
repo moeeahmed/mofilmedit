@@ -37,17 +37,9 @@ export function Cursor({
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [isPointerFine, setIsPointerFine] = useState<boolean>(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    if (typeof window.matchMedia !== "function") {
-      return false;
-    }
-
-    return window.matchMedia("(pointer: fine)").matches;
-  });
+  // Always start false so the server- and client-rendered markup match on
+  // first paint; the effect below sets the real value once mounted.
+  const [isPointerFine, setIsPointerFine] = useState(false);
   const [isVisible, setIsVisible] = useState(!attachToParent);
 
   useEffect(() => {

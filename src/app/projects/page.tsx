@@ -1,9 +1,12 @@
-import AboutUsSection from "@/components/sections/home/about-section";
-import HeroSection from "@/components/sections/home/hero-section";
+import type { Metadata } from "next";
 import PortfolioSection from "@/components/sections/projects/portfolio-section";
-import ServicesSection from "@/components/sections/home/services";
 import FooterSection from "@/components/footer";
-import ContactSection from "@/components/contact";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Browse mofilmedit's portfolio of cinematic videography, sports visuals, and brand films.",
+};
 
 export default function Home() {
   return (
