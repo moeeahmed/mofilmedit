@@ -116,12 +116,10 @@ function AnimatedGroup({
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
   const MotionComponent = React.useMemo(
-    //@ts-expect-error type
     () => motion.create(as as keyof JSX.IntrinsicElements),
     [as]
   );
   const MotionChild = React.useMemo(
-    //@ts-expect-error type
     () => motion.create(asChild as keyof JSX.IntrinsicElements),
     [asChild]
   );
@@ -131,7 +129,6 @@ function AnimatedGroup({
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      //@ts-expect-error type
       className={className}
     >
       {React.Children.map(children, (child, index) => (
