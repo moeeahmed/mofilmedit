@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { HeroHeader } from "@/components/header";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,17 +17,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://mofilmedit.co.uk";
-const description =
-  "mofilmedit is a UK-based videography brand crafting cinematic storytelling, sports visuals, and brand films that leave a lasting impact.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "mofilmedit | Cinematic Videography & Editing",
     template: "%s | mofilmedit",
   },
-  description,
+  description: SITE_DESCRIPTION,
   keywords: [
     "mofilmedit",
     "videography",
@@ -40,24 +37,14 @@ export const metadata: Metadata = {
   creator: "mofilmedit",
   openGraph: {
     type: "website",
-    url: siteUrl,
     title: "mofilmedit | Cinematic Videography & Editing",
-    description,
-    siteName: "mofilmedit",
-    images: [
-      {
-        url: "https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg",
-        width: 1200,
-        height: 630,
-        alt: "mofilmedit",
-      },
-    ],
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
     title: "mofilmedit | Cinematic Videography & Editing",
-    description,
-    images: ["https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg"],
+    description: SITE_DESCRIPTION,
   },
   icons: {
     icon: [

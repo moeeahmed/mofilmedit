@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description:
     "How mofilmedit collects, uses and protects your personal information.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | mofilmedit",
+    description:
+      "How mofilmedit collects, uses and protects your personal information.",
+    url: "/privacy",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 const CONTACT_EMAIL = "contact@mofilmedit.co.uk";
