@@ -46,9 +46,9 @@ export default function PrivacyPage() {
         <p className="mt-8 text-muted-foreground leading-relaxed">
           This policy explains what personal information mofilmedit
           (&quot;I&quot;, &quot;me&quot;) collects through this website, why,
-          and what your rights are under UK data protection law (UK GDPR and
-          the Data Protection Act 2018). I am the data controller for
-          information collected through this site.
+          and what your rights are under UK data protection law (UK GDPR and the
+          Data Protection Act 2018). I am the data controller for information
+          collected through this site.
         </p>
 
         <Section title="What I collect">
@@ -69,8 +69,7 @@ export default function PrivacyPage() {
           <p>
             <strong className="text-foreground">Server logs.</strong> Like most
             websites, my hosting provider processes technical data (such as IP
-            address and request details) to deliver the site and keep it
-            secure.
+            address and request details) to deliver the site and keep it secure.
           </p>
         </Section>
 
@@ -90,7 +89,9 @@ export default function PrivacyPage() {
               interest in running a reliable website.
             </li>
           </ul>
-          <p>I do not sell your data or use it for automated decision-making.</p>
+          <p>
+            I do not sell your data or use it for automated decision-making.
+          </p>
         </Section>
 
         <Section title="Who I share it with">
@@ -99,7 +100,9 @@ export default function PrivacyPage() {
             data on my behalf:
           </p>
           <ul className="list-disc space-y-2 pl-6">
-            <li>Vercel — website hosting, analytics and performance insights.</li>
+            <li>
+              Vercel — website hosting, analytics and performance insights.
+            </li>
             <li>Resend — delivers contact form messages to my email inbox.</li>
             <li>
               Cloudflare Turnstile — spam protection on the contact form, where
@@ -107,10 +110,10 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
-            Some of these providers are based in, or process data in, the
-            United States. Where personal data is transferred outside the UK, it
-            is protected by appropriate safeguards such as the UK
-            International Data Transfer Addendum or an adequacy arrangement.
+            Some of these providers are based in, or process data in, the United
+            States. Where personal data is transferred outside the UK, it is
+            protected by appropriate safeguards such as the UK International
+            Data Transfer Addendum or an adequacy arrangement.
           </p>
         </Section>
 
@@ -118,10 +121,9 @@ export default function PrivacyPage() {
           <p>
             Enquiries are kept only as long as needed to respond and follow up,
             and are normally deleted within 12 months unless we go on to work
-            together, in which case records are kept as required for the
-            project and for legal or accounting purposes. Analytics data is
-            aggregated and retained according to Vercel&apos;s standard
-            retention.
+            together, in which case records are kept as required for the project
+            and for legal or accounting purposes. Analytics data is aggregated
+            and retained according to Vercel&apos;s standard retention.
           </p>
         </Section>
 
@@ -137,18 +139,17 @@ export default function PrivacyPage() {
 
         <Section title="Links to other sites">
           <p>
-            Portfolio pieces link to third-party platforms such as Instagram
-            and YouTube. Those services have their own privacy policies and I
-            am not responsible for how they handle your data.
+            Portfolio pieces link to third-party platforms such as Instagram and
+            YouTube. Those services have their own privacy policies and I am not
+            responsible for how they handle your data.
           </p>
         </Section>
 
         <Section title="Your rights">
           <p>
-            You can ask me to access, correct or delete the personal data I
-            hold about you, to restrict or object to how I use it, and to
-            receive a copy in a portable format. To exercise any of these
-            rights, email{" "}
+            You can ask me to access, correct or delete the personal data I hold
+            about you, to restrict or object to how I use it, and to receive a
+            copy in a portable format. To exercise any of these rights, email{" "}
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="text-foreground underline underline-offset-4"
@@ -156,20 +157,6 @@ export default function PrivacyPage() {
               {CONTACT_EMAIL}
             </a>
             . I will respond within one month.
-          </p>
-          <p>
-            If you are unhappy with how I have handled your data, you have the
-            right to complain to the Information Commissioner&apos;s Office
-            (ICO) at{" "}
-            <a
-              href="https://ico.org.uk/make-a-complaint/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground underline underline-offset-4"
-            >
-              ico.org.uk
-            </a>
-            .
           </p>
         </Section>
 
