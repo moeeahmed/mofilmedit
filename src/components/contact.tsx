@@ -89,11 +89,11 @@ export default function FeaturesSection() {
                 </li>
                 <li>
                   <Link
-                    href="tel:+447931041966"
+                    href="tel:+447391041966"
                     className="inline-flex items-center gap-3 text-sm hover:text-muted-foreground"
                   >
                     <PhoneCall className="size-4" />
-                    <span>+44 7931 041966</span>
+                    <span>+44 7391 041966</span>
                   </Link>
                 </li>
               </ul>
