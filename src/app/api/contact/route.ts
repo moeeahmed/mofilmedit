@@ -3,10 +3,10 @@ import { Resend } from "resend";
 import { contactSchema } from "@/lib/validators/contact";
 import { ZodError } from "zod";
 
-// --- Optional: tiny in-memory rate limiter (per-IP) ---
-// NOTE: For serverless/edge it can reset across instances; use Upstash Redis for real prod needs.
+// Best-effort in-memory limiter: resets when a serverless instance recycles.
+// Use a shared store (e.g. Upstash Redis) for stronger guarantees.
 const rl = new Map<string, { count: number; ts: number }>();
-const WINDOW_MS = 60_000; // 1 minute
+const WINDOW_MS = 60_000;
 const MAX_REQS = 5;
 
 function rateLimit(ip: string | null | undefined) {
@@ -26,13 +26,46 @@ function firstZodMessage(err: ZodError): string {
   return err.issues[0]?.message ?? "Validation failed";
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+async function verifyTurnstile(token: string | null, ip: string | null) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true; // not configured: skip until keys are added
+  if (!token) return false;
+
+  const body = new URLSearchParams({ secret, response: token });
+  if (ip) body.set("remoteip", ip);
+
+  try {
+    const res = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      { method: "POST", body }
+    );
+    const json = (await res.json()) as { success?: boolean };
+    return json.success === true;
+  } catch (err) {
+    console.error("Turnstile verification failed", err);
+    return false;
+  }
+}
 
 export async function POST(req: Request) {
   try {
+    const origin = req.headers.get("origin");
+    if (origin) {
+      let originHost: string | null = null;
+      try {
+        originHost = new URL(origin).host;
+      } catch {}
+      if (originHost !== req.headers.get("host")) {
+        return NextResponse.json(
+          { ok: false, error: "Forbidden" },
+          { status: 403 }
+        );
+      }
+    }
+
     const ip =
       req.headers.get("x-real-ip") ||
-      req.headers.get("x-forwarded-for")?.split(",")[0] ||
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       null;
 
     if (!rateLimit(ip)) {
@@ -43,11 +76,17 @@ export async function POST(req: Request) {
     }
 
     const contentType = req.headers.get("content-type") || "";
-    let data: any;
+    let data: unknown;
+    let turnstileToken: string | null = null;
 
     // support both JSON fetch() and <form> POST (urlencoded/multipart)
     if (contentType.includes("application/json")) {
-      data = await req.json();
+      const json = await req.json();
+      data = json;
+      turnstileToken =
+        typeof json?.["cf-turnstile-response"] === "string"
+          ? json["cf-turnstile-response"]
+          : null;
     } else if (
       contentType.includes("application/x-www-form-urlencoded") ||
       contentType.includes("multipart/form-data")
@@ -57,8 +96,10 @@ export async function POST(req: Request) {
         name: form.get("name"),
         email: form.get("email"),
         message: form.get("message"),
-        website: form.get("website"), // honeypot
+        website: form.get("website") ?? undefined, // honeypot
       };
+      const t = form.get("cf-turnstile-response");
+      turnstileToken = typeof t === "string" ? t : null;
     } else {
       return NextResponse.json(
         { ok: false, error: "Unsupported content type" },
@@ -85,31 +126,39 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true });
     }
 
-    // Compose email
-    const to = process.env.EMAIL_CONTACT_TO!;
-    const from = process.env.EMAIL_CONTACT_FROM!;
-    if (!process.env.RESEND_API_KEY || !to || !from) {
+    if (!(await verifyTurnstile(turnstileToken, ip))) {
       return NextResponse.json(
-        { ok: false, error: "Server not configured (email envs missing)" },
+        { ok: false, error: "Spam check failed. Please try again." },
+        { status: 400 }
+      );
+    }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    const to = process.env.EMAIL_CONTACT_TO;
+    const from = process.env.EMAIL_CONTACT_FROM;
+    if (!apiKey || !to || !from) {
+      console.error("Contact form: email environment variables are missing");
+      return NextResponse.json(
+        { ok: false, error: "Email cannot be sent at this moment." },
         { status: 500 }
       );
     }
 
-    const subject = `New contact form submission from ${name}`;
+    const resend = new Resend(apiKey);
+    const subject = `New contact form submission from ${name.replace(/[\r\n]+/g, " ")}`;
     const html = `
         <div style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', 'Helvetica Neue', Arial;">
           <h2>New Enquiry Message</h2>
           <p><strong>Name:</strong> ${escapeHtml(name)}</p>
           <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-          <p><strong>IP:</strong> ${escapeHtml(ip ?? "unknown")}</p>
           <hr />
           <p style="white-space: pre-wrap">${escapeHtml(message)}</p>
         </div>
       `;
 
     const { error } = await resend.emails.send({
-      from: process.env.EMAIL_CONTACT_FROM!,
-      to: process.env.EMAIL_CONTACT_TO!,
+      from,
+      to,
       subject,
       replyTo: email, // so you can reply directly
       html,
@@ -133,7 +182,6 @@ export async function POST(req: Request) {
   }
 }
 
-// super small HTML escaper
 function escapeHtml(s: string) {
   return s
     .replaceAll("&", "&amp;")
