@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/json-ld";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SOCIAL_LINKS } from "@/lib/site";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SOCIAL_LINKS,
+  SERVICE_CITIES,
+} from "@/lib/site";
 import AboutUsSection from "@/components/sections/home/about-section";
 import HeroSection from "@/components/sections/home/hero-section";
 import PortfolioSection from "@/components/sections/home/portfolio-section";
@@ -34,7 +40,10 @@ const structuredData = {
       logo: `${SITE_URL}/apple-touch-icon.png`,
       image: `${SITE_URL}/opengraph-image`,
       email: "contact@mofilmedit.co.uk",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
+      areaServed: [
+        ...SERVICE_CITIES.map((name) => ({ "@type": "City", name })),
+        { "@type": "Country", name: "United Kingdom" },
+      ],
       knowsAbout: [
         "Videography",
         "Video editing",

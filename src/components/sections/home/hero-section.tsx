@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
+import { SERVICE_AREAS_TEXT } from "@/lib/site";
 
 const transitionVariants = {
   item: {
@@ -71,6 +72,10 @@ export default function HeroSection() {
             <p className="mt-6 max-w-lg text-balance text-white/70">
               Compelling edits and brand experiences that leave a lasting impact
               — from sports and events to brand films.
+            </p>
+
+            <p className="mt-4 text-xs uppercase tracking-[0.25em] text-white/50">
+              Covering {SERVICE_AREAS_TEXT}
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-8">

@@ -5,7 +5,12 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { HeroHeader } from "@/components/header";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+} from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "mofilmedit | Cinematic Videography & Editing",
+    default: SITE_TITLE,
     template: "%s | mofilmedit",
   },
   description: SITE_DESCRIPTION,
@@ -32,18 +37,21 @@ export const metadata: Metadata = {
     "sports videography",
     "event videography",
     "UK videographer",
+    "London videographer",
+    "Birmingham videographer",
+    "videographer near me",
   ],
   authors: [{ name: "mofilmedit" }],
   creator: "mofilmedit",
   openGraph: {
     type: "website",
-    title: "mofilmedit | Cinematic Videography & Editing",
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
-    title: "mofilmedit | Cinematic Videography & Editing",
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   icons: {

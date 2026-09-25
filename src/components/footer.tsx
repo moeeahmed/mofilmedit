@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
+import { SERVICE_AREAS_TEXT } from "@/lib/site";
 
 export default function FooterSection() {
   return (
@@ -114,6 +115,9 @@ export default function FooterSection() {
           </div>
         </ScrollView>
         <ScrollView delay={0.2} viewMargin="0px">
+          <p className="text-muted-foreground mb-3 text-center text-xs uppercase tracking-[0.2em]">
+            Videographer covering {SERVICE_AREAS_TEXT}
+          </p>
           <span className="text-muted-foreground block text-center text-sm">
             {" "}
             © {new Date().getFullYear()} MoFilmedIt, All rights reserved

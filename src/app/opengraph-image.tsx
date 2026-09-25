@@ -55,7 +55,7 @@ export default async function OpenGraphImage() {
             color: "rgba(255,255,255,0.5)",
           }}
         >
-          mofilmedit.co.uk
+          London · Birmingham · UK-wide  |  mofilmedit.co.uk
         </div>
       </div>
     ),
