@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { HeroHeader } from "@/components/header";
+import { CookieConsent } from "@/components/cookie-consent";
 import {
   SITE_URL,
   SITE_NAME,
@@ -88,6 +89,7 @@ export default function RootLayout({
 
           <Analytics />
           <SpeedInsights />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

@@ -5,11 +5,11 @@ const isDev = process.env.NODE_ENV !== "production";
 // 'unsafe-inline' scripts are required by Next's inline bootstrap unless nonces are used.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://challenges.cloudflare.com`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://challenges.cloudflare.com https://connect.facebook.net`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://djpguts9gwm3x.cloudfront.net https://res.cloudinary.com",
+  "img-src 'self' data: blob: https://djpguts9gwm3x.cloudfront.net https://res.cloudinary.com https://www.facebook.com",
   "font-src 'self' data:",
-  `connect-src 'self'${isDev ? " ws: wss:" : ""} https://challenges.cloudflare.com`,
+  `connect-src 'self'${isDev ? " ws: wss:" : ""} https://challenges.cloudflare.com https://www.facebook.com`,
   "frame-src https://challenges.cloudflare.com",
   "object-src 'none'",
   "base-uri 'self'",

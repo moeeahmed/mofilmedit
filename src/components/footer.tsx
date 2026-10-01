@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
 import { BASE_CITY } from "@/lib/site";
+import { openCookiePreferences } from "@/components/cookie-consent";
 
 export default function FooterSection() {
   return (
@@ -122,6 +123,13 @@ export default function FooterSection() {
             {" "}
             © {new Date().getFullYear()} MoFilmedIt, All rights reserved
           </span>
+          <button
+            type="button"
+            onClick={openCookiePreferences}
+            className="text-muted-foreground hover:text-foreground mx-auto mt-3 block text-center text-xs underline underline-offset-4"
+          >
+            Cookie preferences
+          </button>
         </ScrollView>
       </div>
     </footer>

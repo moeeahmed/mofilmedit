@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const CONTACT_EMAIL = "contact@mofilmedit.co.uk";
-const LAST_UPDATED = "25 September 2026";
+const LAST_UPDATED = "1 October 2026";
 
 function Section({
   title,
@@ -115,6 +115,10 @@ export default function PrivacyPage() {
               Cloudflare Turnstile — spam protection on the contact form, where
               enabled.
             </li>
+            <li>
+              Meta (Facebook/Instagram) — ad measurement, only if you accept
+              the cookie banner.
+            </li>
           </ul>
           <p>
             Some of these providers are based in, or process data in, the United
@@ -136,11 +140,30 @@ export default function PrivacyPage() {
 
         <Section title="Cookies">
           <p>
-            This site does not set advertising or tracking cookies. Your
-            colour-theme preference may be stored in your browser&apos;s local
-            storage so the site remembers it. The spam-protection check on the
-            contact form may use limited technical data from your browser to
-            tell humans from bots.
+            <strong className="text-foreground">Essential.</strong> Your
+            cookie choice itself, and your colour-theme preference, are stored
+            in your browser&apos;s local storage so the site remembers them.
+            The spam-protection check on the contact form may use limited
+            technical data from your browser to tell humans from bots.
+          </p>
+          <p>
+            <strong className="text-foreground">Advertising (optional).</strong>{" "}
+            If you accept the cookie banner, I load the Meta (Facebook/
+            Instagram) Pixel, which sets cookies and shares data with Meta to
+            measure how well my ads perform and to show relevant ads to
+            people who&apos;ve visited this site. It only loads if you accept
+            — declining, or not making a choice, means it never loads. You
+            can change your choice at any time using &quot;Cookie
+            preferences&quot; in the footer. See{" "}
+            <a
+              href="https://www.facebook.com/privacy/policy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4"
+            >
+              Meta&apos;s Privacy Policy
+            </a>{" "}
+            for how they handle this data.
           </p>
         </Section>
 
