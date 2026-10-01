@@ -1,5 +1,6 @@
 import { ScrollView } from "@/components/scroll-view";
 import { SERVICES_LIST } from "@/content/services";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function ServicesSection() {
@@ -27,50 +28,63 @@ export default function ServicesSection() {
         </div>
 
         <div className="mt-16 border-b md:mt-24">
-          {SERVICES_LIST.map((service, index) => (
-            <div
-              key={service.name}
-              className="group grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-12 md:gap-10"
-            >
-              <div className="md:col-span-1">
-                <ScrollView>
-                  <span className="text-4xl font-light text-muted-foreground/30 md:text-5xl">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </ScrollView>
-              </div>
+          {SERVICES_LIST.map((service, index) => {
+            const reversed = index % 2 === 1;
+            return (
+              <div
+                key={service.name}
+                className="group grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-12 md:gap-10"
+              >
+                <div className="md:order-1 md:col-span-1">
+                  <ScrollView>
+                    <span className="text-4xl font-light text-muted-foreground/30 md:text-5xl">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </ScrollView>
+                </div>
 
-              <div className="flex flex-col gap-4 md:col-span-4">
-                <ScrollView>
-                  <h3 className="text-2xl font-medium">{service.name}</h3>
-                </ScrollView>
-                <ScrollView delay={0.05}>
-                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
-                    {service.tags.join(" · ")}
-                  </p>
-                </ScrollView>
-                <ScrollView delay={0.1}>
-                  <p className="text-foreground/70">{service.description}</p>
-                </ScrollView>
-              </div>
+                <div
+                  className={cn(
+                    "flex flex-col gap-4 md:col-span-4",
+                    reversed ? "md:order-3" : "md:order-2"
+                  )}
+                >
+                  <ScrollView>
+                    <h3 className="text-2xl font-medium">{service.name}</h3>
+                  </ScrollView>
+                  <ScrollView delay={0.05}>
+                    <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
+                      {service.tags.join(" · ")}
+                    </p>
+                  </ScrollView>
+                  <ScrollView delay={0.1}>
+                    <p className="text-foreground/70">{service.description}</p>
+                  </ScrollView>
+                </div>
 
-              <div className="md:col-span-7">
-                <ScrollView delay={0.1}>
-                  <div className="aspect-[16/9] overflow-hidden">
-                    <Image
-                      src={service.img}
-                      alt={service.name}
-                      height={480}
-                      width={720}
-                      loading="lazy"
-                      sizes="(min-width: 768px) 55vw, 100vw"
-                      className="size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                </ScrollView>
+                <div
+                  className={cn(
+                    "md:col-span-7",
+                    reversed ? "md:order-2" : "md:order-3"
+                  )}
+                >
+                  <ScrollView delay={0.1}>
+                    <div className="aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={service.img}
+                        alt={service.name}
+                        height={480}
+                        width={720}
+                        loading="lazy"
+                        sizes="(min-width: 768px) 55vw, 100vw"
+                        className="size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                  </ScrollView>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
