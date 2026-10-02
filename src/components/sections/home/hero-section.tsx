@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { BASE_CITY } from "@/lib/site";
+import { HeroVideo } from "@/components/hero-video";
 
 const transitionVariants = {
   item: {
@@ -27,16 +28,8 @@ const transitionVariants = {
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative flex min-h-screen items-end overflow-hidden"
-      style={{
-        backgroundImage:
-          'url("https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg")',
-        backgroundColor: "#000",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="relative flex min-h-screen items-end overflow-hidden bg-black">
+      <HeroVideo className="absolute inset-0 -z-10 size-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
 
       <div className="relative z-10 w-full px-6 pb-20 pt-40 lg:px-12 lg:pb-28">

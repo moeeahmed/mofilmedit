@@ -8,6 +8,7 @@ const csp = [
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://challenges.cloudflare.com https://connect.facebook.net`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://djpguts9gwm3x.cloudfront.net https://res.cloudinary.com https://www.facebook.com",
+  "media-src 'self' https://res.cloudinary.com",
   "font-src 'self' data:",
   `connect-src 'self'${isDev ? " ws: wss:" : ""} https://challenges.cloudflare.com https://www.facebook.com`,
   "frame-src https://challenges.cloudflare.com",
