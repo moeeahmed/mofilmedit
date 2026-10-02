@@ -45,6 +45,7 @@ export function HeroVideo({ className }: { className?: string }) {
       loop
       playsInline
       preload="auto"
+      crossOrigin="anonymous"
       poster="https://djpguts9gwm3x.cloudfront.net/mofilmedit.jpg"
       className={className}
     />

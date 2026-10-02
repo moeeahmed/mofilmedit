@@ -29,7 +29,13 @@ const transitionVariants = {
 export default function HeroSection() {
   return (
     <section className="relative flex min-h-screen items-end overflow-hidden bg-black">
-      <HeroVideo className="absolute inset-0 -z-10 size-full object-cover" />
+      {/* No negative z-index here: this <section> only has `relative`, not an
+          explicit z-index, so it doesn't establish its own stacking context,
+          and a negative-z child could escape to an ancestor context and end
+          up painted behind unrelated page content. DOM order (video, then
+          gradient, then the explicitly z-10 content) guarantees correct
+          stacking without that risk. */}
+      <HeroVideo className="absolute inset-0 size-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
 
       <div className="relative z-10 w-full px-6 pb-20 pt-40 lg:px-12 lg:pb-28">
