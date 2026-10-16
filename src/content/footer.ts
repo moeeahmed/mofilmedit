@@ -12,6 +12,10 @@ export const FOOTER_LINKS = [
     href: "/projects",
   },
   {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
     title: "Contact",
     href: "/#contact",
   },
