@@ -7,9 +7,9 @@ import type { PortfolioItem } from "@/content/portfolio";
 function PortfolioCardBody({ card }: { card: PortfolioItem }) {
   return (
     <>
-      <div className="overflow-hidden">
+      <div className="aspect-video overflow-hidden">
         <Image
-          className="w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+          className="size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           height={480}
           width={720}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
