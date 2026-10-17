@@ -6,6 +6,7 @@ import FooterSection from "@/components/footer";
 import { ScrollView } from "@/components/scroll-view";
 import { ABOUT_PHOTO, ABOUT_PARAGRAPHS } from "@/content/about";
 import { BASE_CITY } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "About",
@@ -55,7 +56,12 @@ export default function AboutPage() {
             <div>
               {ABOUT_PARAGRAPHS.map((paragraph, index) => (
                 <ScrollView key={index} delay={0.1 + index * 0.03}>
-                  <p className="mt-6 text-muted-foreground leading-relaxed first:mt-0">
+                  <p
+                    className={cn(
+                      "text-muted-foreground leading-relaxed",
+                      index > 0 && "mt-12"
+                    )}
+                  >
                     {paragraph}
                   </p>
                 </ScrollView>
