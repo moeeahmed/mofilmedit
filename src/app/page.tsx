@@ -13,9 +13,11 @@ import AboutUsSection from "@/components/sections/home/about-section";
 import HeroSection from "@/components/sections/home/hero-section";
 import PortfolioSection from "@/components/sections/home/portfolio-section";
 import ServicesSection from "@/components/sections/home/services";
+import FaqSection from "@/components/sections/home/faq-section";
 import PhotographyCarouselSection from "@/components/sections/home/photography-carousel";
 import FooterSection from "@/components/footer";
 import ContactSection from "@/components/contact";
+import { FAQ_LIST } from "@/content/faq";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -61,6 +63,17 @@ const structuredData = {
       ],
       sameAs: SOCIAL_LINKS,
     },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ_LIST.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
   ],
 };
 
@@ -74,6 +87,7 @@ export default function Home() {
       {/* <PhotographyCarouselSection /> */}
       {/* <AboutUsSection /> */}
       {/* <WorkedWith /> */}
+      <FaqSection />
       <ContactSection />
       <FooterSection />
     </main>
