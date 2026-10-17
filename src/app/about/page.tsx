@@ -38,7 +38,7 @@ export default function AboutPage() {
             </ScrollView>
 
             <ScrollView delay={0.15}>
-              <div className="-mx-6 mt-10 aspect-[4/3] overflow-hidden md:mx-0">
+              <div className="mt-10 aspect-[4/3] overflow-hidden">
                 <Image
                   src={ABOUT_PHOTO}
                   alt="mofilmedit on location"
