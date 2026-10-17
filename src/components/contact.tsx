@@ -104,7 +104,7 @@ export default function FeaturesSection() {
                 href="https://wa.me/447391041966"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-8 inline-flex items-center gap-3 border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-foreground"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#25D366] px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#1ebe5a]"
               >
                 <svg
                   className="size-4"
