@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import FooterSection from "@/components/footer";
 import { ScrollView } from "@/components/scroll-view";
 import { ABOUT_PHOTO, ABOUT_PARAGRAPHS } from "@/content/about";
-import { BASE_CITY } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -33,12 +32,12 @@ export default function AboutPage() {
           </ScrollView>
           <ScrollView delay={0.1}>
             <h1 className="mt-4 text-4xl font-medium leading-tight md:text-5xl">
-              From engineer to {BASE_CITY} videographer.
+              From Engineer to Videographer.
             </h1>
           </ScrollView>
 
           <ScrollView delay={0.15}>
-            <div className="mt-10 aspect-[4/3] w-full overflow-hidden">
+            <div className="-mx-6 mt-10 aspect-[4/3] overflow-hidden md:mx-0">
               <Image
                 src={ABOUT_PHOTO}
                 alt="mofilmedit on location"
@@ -57,7 +56,7 @@ export default function AboutPage() {
                 <p
                   className={
                     index > 0
-                      ? "mt-12 text-muted-foreground leading-relaxed"
+                      ? "mt-6 text-muted-foreground leading-relaxed"
                       : "text-muted-foreground leading-relaxed"
                   }
                 >
