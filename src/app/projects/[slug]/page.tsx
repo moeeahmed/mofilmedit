@@ -109,8 +109,25 @@ export default async function ProjectPage({
             </div>
           </ScrollView>
 
+          {project.concept && (
+            <ScrollView delay={0.22}>
+              <div className="mt-10 max-w-2xl border-t pt-10">
+                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
+                  The concept
+                </p>
+                <p className="mt-4 text-foreground/80 leading-relaxed">
+                  {project.concept}
+                </p>
+              </div>
+            </ScrollView>
+          )}
+
           <ScrollView delay={0.25}>
-            <div className="mt-10 flex flex-wrap items-center gap-8 border-t pt-8">
+            <div
+              className={`mt-10 flex flex-wrap items-center gap-8 ${
+                project.concept ? "" : "border-t pt-8"
+              }`}
+            >
               <Link
                 href="/#contact"
                 className="group inline-flex items-center gap-2 border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-foreground"
