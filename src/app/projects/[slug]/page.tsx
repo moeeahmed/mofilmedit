@@ -66,6 +66,7 @@ export default async function ProjectPage({
     contentUrl: project.video,
     embedUrl: `${SITE_URL}/projects/${project.slug}`,
     publisher: { "@id": `${SITE_URL}/#business` },
+    ...(project.uploadDate ? { uploadDate: project.uploadDate } : {}),
   };
 
   return (

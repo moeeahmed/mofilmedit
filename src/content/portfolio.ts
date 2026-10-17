@@ -12,9 +12,67 @@ export type PortfolioItem = {
   // "portrait" for vertical-shot footage (e.g. Instagram reels); the
   // project page sizes the video player differently for each.
   orientation?: "landscape" | "portrait";
+  // ISO 8601 date (YYYY-MM-DD) this was first published on its original
+  // platform (or filmed, if there's no external link). Only used for
+  // VideoObject's uploadDate on case-study pages - required by Google for
+  // video rich-result eligibility.
+  uploadDate?: string;
 };
 
 export const PORTFOLIO_CONTENT: PortfolioItem[] = [
+  {
+    name: "Maranoia | NSLB X Nike",
+    description:
+      "An NSLB and Nike event held before the 2026 TCS London Marathon, a single day of sprint and endurance races for a shot at four £1,000 prizes.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234481/maranoia.jpg",
+    url: "https://www.instagram.com/reel/DXto2xNCBNZ/?srtk=ZWIxa3hhejV3MXBm",
+    slug: "maranoia-x-nslb-x-nike",
+    uploadDate: "2026-04-29",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234481/maranoia.mp4",
+    concept:
+      "NSLB brings people together around self improvement beyond the gym, and this one was run with Nike ahead of the 2026 TCS London Marathon. 140 runners were picked at random to race for a shot at four £1,000 prizes, with invite only relays rounding things out. I wanted to capture the whole day, not just the races but everything around them, the NSLB pop up, the recovery stations, the food, everything that made it feel like a proper hub rather than just a race.",
+  },
+  {
+    name: "Pana Run Club | Hackney Half Afterparty",
+    description:
+      "Pana Run Club's block party after the Hackney Half Marathon, capturing the atmosphere of the celebration.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234913/pananaonana.jpg",
+    url: "https://www.instagram.com/reel/DYfM1vHI_6Z/?cplk=MWZ3eDQ3MDM5Mmhqdg==",
+    slug: "pana-run-club-hackney-half-afterparty",
+    uploadDate: "2026-05-18",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234913/pananaonana.mp4",
+    concept:
+      "This one was purely about the vibe, fast cuts, music led, and framed around the moments where people's emotions were most visible.",
+  },
+  {
+    name: "Future Culture X World Cup Screening",
+    description:
+      "Promo for the World Cup Activation event hosted by Future Culture",
+    img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
+    url: "https://www.youtube.com/watch?v=-BoMOUpRX40",
+    slug: "future-culture-x-world-cup-screening",
+    uploadDate: "2026-06-16",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792198089/GamingVideo_v2-3.mp4",
+    concept: `Future Culture's World Cup activation was built around screening the games, so I wanted to tap into something every fan has actually done themselves... picking a squad in FIFA. The video recreates the game's team selection screen, whilst playing the legendary FIFA 14 soundtrack by John Newman, 
+      swapping in talent from the event in place of the usual roster. FYI, The screen itself was built and masked onto a black background in After Effects`,
+  },
+  {
+    name: "The Shirt Vault X Rio Cardines",
+    description:
+      "Capturing The  Shirt Vault delivery of the debut shirt of Crystal Palace & Trinidad and Tobago International, Rio Cardines ",
+    img: "https://djpguts9gwm3x.cloudfront.net/2EGycqhdJmMQ2O52.jpg",
+    url: "https://www.instagram.com/reel/Da-WyvCNDF_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    slug: "the-shirt-vault-x-rio-cardines",
+    uploadDate: "2026-07-19",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/TSV_Lil_Baby_Clean.mp4",
+    orientation: "portrait",
+    concept: `The Shirt Vault makes custom shirt frames for athletes. This one marked Rio Cardines' debut for both Crystal Palace and Trinidad & Tobago, so rather than script anything, I just filmed the handover and let his reaction carry it. 
+      Add values to clients business as it showwhat his customers feel the first time they see their frame.`,
+  },
   {
     name: "Hyrox | Rotterdam 2026",
     description:
@@ -22,10 +80,18 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234432/hyrox.jpg",
     url: "https://www.instagram.com/reel/DXZsuzToVqT/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
     slug: "hyrox-rotterdam-2026",
+    uploadDate: "2026-04-21",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234432/hyrox.mp4",
     concept:
       "I wanted the edit to put you inside the chaos of race day, whether you're competing or watching from the sidelines. Using fast cuts, slow motion and a low shutter speed, something new happens on screen every one to two seconds, keeping it engaging while mirroring how overwhelming and fast the event actually feels in person.",
+  },
+  {
+    name: "Youtube Series | Road to London Marathon",
+    description:
+      "3 part series following the journey of a Rudy (Founder of RoCUP and Contraband) preparing for the London Marathon, showcasing training, nutrition, and mental preparation.",
+    img: "https://djpguts9gwm3x.cloudfront.net/a2OIV224N1MW3vrz.jpg",
+    url: "https://youtu.be/hgfCoM0LVoo?si=3dDKPkALrIRRBLRL",
   },
   {
     name: "CEI Bridal",
@@ -34,6 +100,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234951/CEI.jpg",
     url: "https://www.instagram.com/reel/DYdMA0ut3Wl/?xtok=MWN3NDFtYnRvaXdpOA==",
     slug: "cei-bridal",
+    uploadDate: "2026-05-17",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234951/CEI.mp4",
     orientation: "portrait",
@@ -47,22 +114,11 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234947/BU_Uber_HD.jpg",
     url: "https://www.instagram.com/reel/DZKvCN2qA35/?dlrf=cjg2bWZreGwzeTM0",
     slug: "birmingham-united-x-uber",
+    uploadDate: "2026-06-04",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/BU_Uber_HD.mp4",
     concept:
       "I wanted to tell two contrasting stories side by side, showing how something as simple as the distance to training can shape a young player's experience of the game.",
-  },
-  {
-    name: "Pana Run Club | Hackney Half Afterparty",
-    description:
-      "Pana Run Club's block party after the Hackney Half Marathon, capturing the atmosphere of the celebration.",
-    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234913/pananaonana.jpg",
-    url: "https://www.instagram.com/reel/DYfM1vHI_6Z/?cplk=MWZ3eDQ3MDM5Mmhqdg==",
-    slug: "pana-run-club-hackney-half-afterparty",
-    video:
-      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234913/pananaonana.mp4",
-    concept:
-      "This one was purely about the vibe, fast cuts, music led, and framed around the moments where people's emotions were most visible.",
   },
   {
     name: "Endure Run Club | Pay What You Earn",
@@ -71,22 +127,11 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234901/PayWhatYouEarn.jpg",
     url: "https://www.instagram.com/reel/DZcxeYZKn6i/?dlrf=N3ZkOWwxaW14Njlq",
     slug: "endure-run-club-pay-what-you-earn",
+    uploadDate: "2026-06-11",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234901/PayWhatYouEarn.mp4",
     concept:
       "The film follows one runner's 5K from start to finish, then to a secret location where she collects the tracksuit she just earned, literally paying what she ran.",
-  },
-  {
-    name: "Maranoia X NSLB X Nike",
-    description:
-      "An NSLB and Nike event held before the 2026 TCS London Marathon, a single day of sprint and endurance races for a shot at four £1,000 prizes.",
-    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234481/maranoia.jpg",
-    url: "https://www.instagram.com/reel/DXto2xNCBNZ/?srtk=ZWIxa3hhejV3MXBm",
-    slug: "maranoia-x-nslb-x-nike",
-    video:
-      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234481/maranoia.mp4",
-    concept:
-      "NSLB brings people together around self improvement beyond the gym, and this one was run with Nike ahead of the 2026 TCS London Marathon. 140 runners were picked at random to race for a shot at four £1,000 prizes, with invite only relays rounding things out. I wanted to capture the whole day, not just the races but everything around them, the NSLB pop up, the recovery stations, the food, everything that made it feel like a proper hub rather than just a race.",
   },
   {
     name: "Endure Run Club | Marrakesh Half Marathon",
@@ -95,6 +140,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234454/MarakeshMarathon.jpg",
     url: "",
     slug: "endure-run-club-marrakesh-half-marathon",
+    uploadDate: "2026-01-25",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234454/MarakeshMarathon.mp4",
     concept:
@@ -106,38 +152,6 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
       "A cinematic recap of Unity Cup 2026, capturing the emotion, energy and community behind the event. More than a football match, the film celebrates unity, remembrance and the legacy of four brothers who inspired the occasion.",
     img: "https://djpguts9gwm3x.cloudfront.net/ad3xUA0zS94v.jpg",
     url: "https://www.youtube.com/watch?v=MPNyBrB5bX8",
-  },
-  {
-    name: "The Shirt Vault X Rio Cardines",
-    description:
-      "Capturing The  Shirt Vault delivery of the debut shirt of Crystal Palace & Trinidad and Tobago International, Rio Cardines ",
-    img: "https://djpguts9gwm3x.cloudfront.net/2EGycqhdJmMQ2O52.jpg",
-    url: "https://www.instagram.com/reel/Da-WyvCNDF_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    slug: "the-shirt-vault-x-rio-cardines",
-    video:
-      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/TSV_Lil_Baby_Clean.mp4",
-    orientation: "portrait",
-    concept: `The Shirt Vault makes custom shirt frames for athletes. This one marked Rio Cardines' debut for both Crystal Palace and Trinidad & Tobago, so rather than script anything, I just filmed the handover and let his reaction carry it. 
-      Add values to clients business as it showwhat his customers feel the first time they see their frame.`,
-  },
-  {
-    name: "Future Culture X World Cup Screening",
-    description:
-      "Promo for the World Cup Activation event hosted by Future Culture",
-    img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
-    url: "https://www.youtube.com/watch?v=-BoMOUpRX40",
-    slug: "future-culture-x-world-cup-screening",
-    video:
-      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792198089/GamingVideo_v2-3.mp4",
-    concept: `Future Culture's World Cup activation was built around screening the games, so I wanted to tap into something every fan has actually done themselves... picking a squad in FIFA. The video recreates the game's team selection screen, whilst playing the legendary FIFA 14 soundtrack by John Newman, 
-      swapping in talent from the event in place of the usual roster. FYI, The screen itself was built and masked onto a black background in After Effects`,
-  },
-  {
-    name: "Youtube Series | Road to London Marathon",
-    description:
-      "3 part series following the journey of a Rudy (Founder of RoCUP and Contraband) preparing for the London Marathon, showcasing training, nutrition, and mental preparation.",
-    img: "https://djpguts9gwm3x.cloudfront.net/a2OIV224N1MW3vrz.jpg",
-    url: "https://youtu.be/hgfCoM0LVoo?si=3dDKPkALrIRRBLRL",
   },
   {
     name: "Endure Run Club | Birmingham Half Marathon Sign up Activation",
