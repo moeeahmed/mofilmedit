@@ -4,6 +4,10 @@ export const NAV_LINKS = [
     href: "/",
   },
   {
+    name: "About",
+    href: "/about",
+  },
+  {
     name: "Services",
     href: "/#services",
   },

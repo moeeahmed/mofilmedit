@@ -85,8 +85,7 @@ export default function Home() {
       <ServicesSection />
       <PortfolioSection />
       {/* <PhotographyCarouselSection /> */}
-      {/* <AboutUsSection /> */}
-      {/* <WorkedWith /> */}
+      <AboutUsSection />
       <FaqSection />
       <ContactSection />
       <FooterSection />
