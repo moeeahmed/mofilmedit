@@ -44,6 +44,8 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/TSV_Lil_Baby_Clean.mp4",
     orientation: "portrait",
+    concept:
+      "The Shirt Vault makes custom shirt frames for athletes. This one marked Rio Cardines' debut for both Crystal Palace and Trinidad & Tobago, so rather than script anything, I just filmed the handover and let his reaction carry it — what actually happens on someone's face the first time they see their frame.",
   },
   {
     name: "Future Culture X World Cup Screening",
