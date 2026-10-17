@@ -45,7 +45,7 @@ export default function AboutPage() {
                 height={1080}
                 priority
                 sizes="(min-width: 768px) 768px, 100vw"
-                className="size-full object-cover"
+                className="size-full object-cover object-[70%_center]"
               />
             </div>
           </ScrollView>
