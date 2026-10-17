@@ -11,6 +11,13 @@ function getProject(slug: string) {
   return PORTFOLIO_CONTENT.find((item) => item.slug === slug && item.video);
 }
 
+function getPlatformName(url: string): string {
+  if (/instagram\.com/.test(url)) return "Instagram";
+  if (/youtube\.com|youtu\.be/.test(url)) return "YouTube";
+  if (/tiktok\.com/.test(url)) return "TikTok";
+  return "Original";
+}
+
 export function generateStaticParams() {
   return PORTFOLIO_CONTENT.filter((item) => item.slug && item.video).map(
     (item) => ({ slug: item.slug as string })
@@ -142,7 +149,7 @@ export default async function ProjectPage({
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
-                  View on YouTube
+                  View on {getPlatformName(project.url)}
                 </a>
               )}
             </div>

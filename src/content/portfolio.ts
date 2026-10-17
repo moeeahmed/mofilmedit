@@ -13,6 +13,18 @@ export type PortfolioItem = {
 
 export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   {
+    name: "Hyrox | Rotterdam 2026",
+    description:
+      "A fast-paced recap of HYROX Rotterdam 2026, built to capture the energy and emotion of race day.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234432/hyrox.jpg",
+    url: "https://www.instagram.com/reel/DXZsuzToVqT/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+    slug: "hyrox-rotterdam-2026",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234432/hyrox.mp4",
+    concept:
+      "I wanted the edit to put you inside the chaos of race day, whether you're competing or watching from the sidelines. Using fast cuts, slow motion and a low shutter speed, something new happens on screen every one to two seconds, keeping it engaging while mirroring how overwhelming and fast the event actually feels in person.",
+  },
+  {
     name: "The Unity Cup | Mini Doc",
     description:
       "A cinematic recap of Unity Cup 2026, capturing the emotion, energy and community behind the event. More than a football match, the film celebrates unity, remembrance and the legacy of four brothers who inspired the occasion.",
