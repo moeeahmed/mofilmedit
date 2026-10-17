@@ -10,7 +10,7 @@ export default function AboutUsSection() {
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-16">
           <ScrollView>
-            <div className="aspect-[4/5] w-full max-w-md overflow-hidden">
+            <div className="aspect-[4/5] w-full overflow-hidden">
               <Image
                 src={ABOUT_PHOTO}
                 alt="mofilmedit on location"
