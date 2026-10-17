@@ -35,8 +35,8 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     slug: "future-culture-x-world-cup-screening",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792198089/GamingVideo_v2-3.mp4",
-    concept:
-      "Future Culture's World Cup activation was built around screening the games, so I wanted to tap into something every fan has actually done themselves — picking a squad in FIFA. The video recreates the game's team-select screen, set to the FIFA 14 soundtrack by John Newman, swapping in talent from the event in place of the usual roster. The screen itself was built and masked onto a black background in After Effects.",
+    concept: `Future Culture's World Cup activation was built around screening the games, so I wanted to tap into something every fan has actually done themselves... picking a squad in FIFA. The video recreates the game's team selection screen, whilst playing the legendary FIFA 14 soundtrack by John Newman, 
+      swapping in talent from the event in place of the usual roster. FYI, The screen itself was built and masked onto a black background in After Effects`,
   },
   {
     name: "Youtube Series | Road to London Marathon",
