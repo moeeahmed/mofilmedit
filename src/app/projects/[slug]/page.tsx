@@ -6,6 +6,7 @@ import FooterSection from "@/components/footer";
 import { ScrollView } from "@/components/scroll-view";
 import { PORTFOLIO_CONTENT } from "@/content/portfolio";
 import { SITE_URL } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 function getProject(slug: string) {
   return PORTFOLIO_CONTENT.find((item) => item.slug === slug && item.video);
@@ -103,7 +104,14 @@ export default async function ProjectPage({
           </ScrollView>
 
           <ScrollView delay={0.2}>
-            <div className="mt-10 aspect-video overflow-hidden bg-black">
+            <div
+              className={cn(
+                "mt-10 overflow-hidden bg-black",
+                project.orientation === "portrait"
+                  ? "mx-auto aspect-[9/16] max-w-sm"
+                  : "aspect-video"
+              )}
+            >
               <video
                 controls
                 playsInline
