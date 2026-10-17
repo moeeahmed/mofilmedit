@@ -37,15 +37,15 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   {
     name: "The Shirt Vault X Rio Cardines",
     description:
-      "Capturing the  Shirt Vault delivery of the debut shirt of Crystal Palace & Trinidad and Tobago International, Rio Cardines ",
+      "Capturing The  Shirt Vault delivery of the debut shirt of Crystal Palace & Trinidad and Tobago International, Rio Cardines ",
     img: "https://djpguts9gwm3x.cloudfront.net/2EGycqhdJmMQ2O52.jpg",
     url: "https://www.instagram.com/reel/Da-WyvCNDF_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     slug: "the-shirt-vault-x-rio-cardines",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/TSV_Lil_Baby_Clean.mp4",
     orientation: "portrait",
-    concept:
-      "The Shirt Vault makes custom shirt frames for athletes. This one marked Rio Cardines' debut for both Crystal Palace and Trinidad & Tobago, so rather than script anything, I just filmed the handover and let his reaction carry it — what actually happens on someone's face the first time they see their frame.",
+    concept: `The Shirt Vault makes custom shirt frames for athletes. This one marked Rio Cardines' debut for both Crystal Palace and Trinidad & Tobago, so rather than script anything, I just filmed the handover and let his reaction carry it. 
+      Add values to clients business as it showwhat his customers feel the first time they see their frame.`,
   },
   {
     name: "Future Culture X World Cup Screening",

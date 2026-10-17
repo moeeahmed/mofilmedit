@@ -106,7 +106,7 @@ export default async function ProjectPage({
                     playsInline
                     preload="metadata"
                     poster={project.img}
-                    className="size-full"
+                    className="size-full object-cover"
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
