@@ -97,71 +97,133 @@ export default async function ProjectPage({
               {project.name}
             </h1>
           </ScrollView>
-          <ScrollView delay={0.15}>
-            <p className="mt-6 max-w-xl text-muted-foreground">
-              {project.description}
-            </p>
-          </ScrollView>
+          {project.orientation === "portrait" ? (
+            <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
+              <ScrollView delay={0.2}>
+                <div className="mx-auto aspect-[9/16] w-full max-w-sm overflow-hidden bg-black md:mx-0">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={project.img}
+                    className="size-full"
+                  >
+                    <source src={project.video} type="video/mp4" />
+                  </video>
+                </div>
+              </ScrollView>
 
-          <ScrollView delay={0.2}>
-            <div
-              className={cn(
-                "mt-10 overflow-hidden bg-black",
-                project.orientation === "portrait"
-                  ? "mx-auto aspect-[9/16] max-w-sm"
-                  : "aspect-video"
-              )}
-            >
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                poster={project.img}
-                className="size-full"
-              >
-                <source src={project.video} type="video/mp4" />
-              </video>
-            </div>
-          </ScrollView>
+              <div>
+                <ScrollView delay={0.15}>
+                  <p className="text-muted-foreground">
+                    {project.description}
+                  </p>
+                </ScrollView>
 
-          {project.concept && (
-            <ScrollView delay={0.22}>
-              <div className="mt-10 max-w-2xl border-t pt-10">
-                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
-                  The concept
-                </p>
-                <p className="mt-4 text-foreground/80 leading-relaxed">
-                  {project.concept}
-                </p>
+                {project.concept && (
+                  <ScrollView delay={0.22}>
+                    <div className="mt-8 border-t pt-8">
+                      <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
+                        The concept
+                      </p>
+                      <p className="mt-4 text-foreground/80 leading-relaxed">
+                        {project.concept}
+                      </p>
+                    </div>
+                  </ScrollView>
+                )}
+
+                <ScrollView delay={0.25}>
+                  <div
+                    className={cn(
+                      "mt-8 flex flex-wrap items-center gap-8",
+                      !project.concept && "border-t pt-8"
+                    )}
+                  >
+                    <Link
+                      href="/#contact"
+                      className="group inline-flex items-center gap-2 border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-foreground"
+                    >
+                      Start a project
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                      >
+                        View on {getPlatformName(project.url)}
+                      </a>
+                    )}
+                  </div>
+                </ScrollView>
               </div>
-            </ScrollView>
-          )}
-
-          <ScrollView delay={0.25}>
-            <div
-              className={`mt-10 flex flex-wrap items-center gap-8 ${
-                project.concept ? "" : "border-t pt-8"
-              }`}
-            >
-              <Link
-                href="/#contact"
-                className="group inline-flex items-center gap-2 border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-foreground"
-              >
-                Start a project
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-                >
-                  View on {getPlatformName(project.url)}
-                </a>
-              )}
             </div>
-          </ScrollView>
+          ) : (
+            <>
+              <ScrollView delay={0.15}>
+                <p className="mt-6 max-w-xl text-muted-foreground">
+                  {project.description}
+                </p>
+              </ScrollView>
+
+              <ScrollView delay={0.2}>
+                <div className="mt-10 aspect-video overflow-hidden bg-black">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={project.img}
+                    className="size-full"
+                  >
+                    <source src={project.video} type="video/mp4" />
+                  </video>
+                </div>
+              </ScrollView>
+
+              {project.concept && (
+                <ScrollView delay={0.22}>
+                  <div className="mt-10 max-w-2xl border-t pt-10">
+                    <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/70">
+                      The concept
+                    </p>
+                    <p className="mt-4 text-foreground/80 leading-relaxed">
+                      {project.concept}
+                    </p>
+                  </div>
+                </ScrollView>
+              )}
+
+              <ScrollView delay={0.25}>
+                <div
+                  className={cn(
+                    "mt-10 flex flex-wrap items-center gap-8",
+                    !project.concept && "border-t pt-8"
+                  )}
+                >
+                  <Link
+                    href="/#contact"
+                    className="group inline-flex items-center gap-2 border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-foreground"
+                  >
+                    Start a project
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+                    >
+                      View on {getPlatformName(project.url)}
+                    </a>
+                  )}
+                </div>
+              </ScrollView>
+            </>
+          )}
         </div>
       </article>
       <FooterSection />
