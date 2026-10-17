@@ -67,6 +67,27 @@ export default async function ProjectPage({
     embedUrl: `${SITE_URL}/projects/${project.slug}`,
     publisher: { "@id": `${SITE_URL}/#business` },
     ...(project.uploadDate ? { uploadDate: project.uploadDate } : {}),
+    ...(project.duration ? { duration: project.duration } : {}),
+  };
+
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Work",
+        item: `${SITE_URL}/projects`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.name,
+        item: `${SITE_URL}/projects/${project.slug}`,
+      },
+    ],
   };
 
   return (
@@ -75,6 +96,12 @@ export default async function ProjectPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbData).replace(/</g, "\\u003c"),
         }}
       />
       <article className="px-6 pb-24 pt-40 lg:px-12">

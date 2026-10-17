@@ -17,6 +17,8 @@ export type PortfolioItem = {
   // VideoObject's uploadDate on case-study pages - required by Google for
   // video rich-result eligibility.
   uploadDate?: string;
+  // ISO 8601 duration (e.g. "PT36S", "PT1M26S"), for VideoObject markup.
+  duration?: string;
 };
 
 export const PORTFOLIO_CONTENT: PortfolioItem[] = [
@@ -26,34 +28,37 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
       "An NSLB and Nike event held before the 2026 TCS London Marathon, a single day of sprint and endurance races for a shot at four £1,000 prizes.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234481/maranoia.jpg",
     url: "https://www.instagram.com/reel/DXto2xNCBNZ/?srtk=ZWIxa3hhejV3MXBm",
-    slug: "maranoia-x-nslb-x-nike",
+    slug: "maranoia-nslb-x-nike",
     uploadDate: "2026-04-29",
+    duration: "PT29S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234481/maranoia.mp4",
     concept:
       "NSLB brings people together around self improvement beyond the gym, and this one was run with Nike ahead of the 2026 TCS London Marathon. 140 runners were picked at random to race for a shot at four £1,000 prizes, with invite only relays rounding things out. I wanted to capture the whole day, not just the races but everything around them, the NSLB pop up, the recovery stations, the food, everything that made it feel like a proper hub rather than just a race.",
   },
   {
-    name: "Pana Run Club | Hackney Half Afterparty",
+    name: "Pana Run Club | Hackney Half bLOCKparty",
     description:
       "Pana Run Club's block party after the Hackney Half Marathon, capturing the atmosphere of the celebration.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234913/pananaonana.jpg",
     url: "https://www.instagram.com/reel/DYfM1vHI_6Z/?cplk=MWZ3eDQ3MDM5Mmhqdg==",
-    slug: "pana-run-club-hackney-half-afterparty",
+    slug: "pana-run-club-hackney-half-blockparty",
     uploadDate: "2026-05-18",
+    duration: "PT21S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234913/pananaonana.mp4",
     concept:
       "This one was purely about the vibe, fast cuts, music led, and framed around the moments where people's emotions were most visible.",
   },
   {
-    name: "Future Culture X World Cup Screening",
+    name: "Future Culture X World Cup Activation",
     description:
       "Promo for the World Cup Activation event hosted by Future Culture",
     img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
     url: "https://www.youtube.com/watch?v=-BoMOUpRX40",
-    slug: "future-culture-x-world-cup-screening",
+    slug: "future-culture-x-world-cup-activation",
     uploadDate: "2026-06-16",
+    duration: "PT38S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792198089/GamingVideo_v2-3.mp4",
     concept: `Future Culture's World Cup activation was built around screening the games, so I wanted to tap into something every fan has actually done themselves... picking a squad in FIFA. The video recreates the game's team selection screen, whilst playing the legendary FIFA 14 soundtrack by John Newman, 
@@ -67,6 +72,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "https://www.instagram.com/reel/Da-WyvCNDF_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     slug: "the-shirt-vault-x-rio-cardines",
     uploadDate: "2026-07-19",
+    duration: "PT36S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/TSV_Lil_Baby_Clean.mp4",
     orientation: "portrait",
@@ -81,6 +87,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "https://www.instagram.com/reel/DXZsuzToVqT/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
     slug: "hyrox-rotterdam-2026",
     uploadDate: "2026-04-21",
+    duration: "PT30S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234432/hyrox.mp4",
     concept:
@@ -101,6 +108,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "https://www.instagram.com/reel/DYdMA0ut3Wl/?xtok=MWN3NDFtYnRvaXdpOA==",
     slug: "cei-bridal",
     uploadDate: "2026-05-17",
+    duration: "PT46S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234951/CEI.mp4",
     orientation: "portrait",
@@ -115,6 +123,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "https://www.instagram.com/reel/DZKvCN2qA35/?dlrf=cjg2bWZreGwzeTM0",
     slug: "birmingham-united-x-uber",
     uploadDate: "2026-06-04",
+    duration: "PT1M26S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/BU_Uber_HD.mp4",
     concept:
@@ -128,6 +137,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "https://www.instagram.com/reel/DZcxeYZKn6i/?dlrf=N3ZkOWwxaW14Njlq",
     slug: "endure-run-club-pay-what-you-earn",
     uploadDate: "2026-06-11",
+    duration: "PT36S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234901/PayWhatYouEarn.mp4",
     concept:
@@ -141,6 +151,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
     url: "",
     slug: "endure-run-club-marrakesh-half-marathon",
     uploadDate: "2026-01-25",
+    duration: "PT38S",
     video:
       "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234454/MarakeshMarathon.mp4",
     concept:
