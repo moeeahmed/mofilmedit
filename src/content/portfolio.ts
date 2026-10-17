@@ -28,6 +28,79 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
       "I wanted the edit to put you inside the chaos of race day, whether you're competing or watching from the sidelines. Using fast cuts, slow motion and a low shutter speed, something new happens on screen every one to two seconds, keeping it engaging while mirroring how overwhelming and fast the event actually feels in person.",
   },
   {
+    name: "CEI Bridal",
+    description:
+      "A campaign film for CÉI Bridal, the contemporary bridal brand rooted in Somali heritage and craftsmanship.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234951/CEI.jpg",
+    url: "https://www.instagram.com/reel/DYdMA0ut3Wl/?xtok=MWN3NDFtYnRvaXdpOA==",
+    slug: "cei-bridal",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234951/CEI.mp4",
+    orientation: "portrait",
+    concept:
+      "I wanted the film to feel elegant and intentional, holding back what it's actually about until right at the end, so the reveal carries the same weight as the garment itself.",
+  },
+  {
+    name: "Birmingham United X Uber",
+    description:
+      "A collaboration between Uber and Birmingham United, following two young footballers and how long journeys to training affect their performance.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234947/BU_Uber_HD.jpg",
+    url: "https://www.instagram.com/reel/DZKvCN2qA35/?dlrf=cjg2bWZreGwzeTM0",
+    slug: "birmingham-united-x-uber",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234947/BU_Uber_HD.mp4",
+    concept:
+      "I wanted to tell two contrasting stories side by side, showing how something as simple as the distance to training can shape a young player's experience of the game.",
+  },
+  {
+    name: "Pana Run Club | Hackney Half Afterparty",
+    description:
+      "Pana Run Club's block party after the Hackney Half Marathon, capturing the atmosphere of the celebration.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234913/pananaonana.jpg",
+    url: "https://www.instagram.com/reel/DYfM1vHI_6Z/?cplk=MWZ3eDQ3MDM5Mmhqdg==",
+    slug: "pana-run-club-hackney-half-afterparty",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234913/pananaonana.mp4",
+    concept:
+      "This one was purely about the vibe, fast cuts, music led, and framed around the moments where people's emotions were most visible.",
+  },
+  {
+    name: "Endure Run Club | Pay What You Earn",
+    description:
+      "For Endure Run Club's limited tracksuit drop, your price was set by your own 5K time, down to the second.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234901/PayWhatYouEarn.jpg",
+    url: "https://www.instagram.com/reel/DZcxeYZKn6i/?dlrf=N3ZkOWwxaW14Njlq",
+    slug: "endure-run-club-pay-what-you-earn",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234901/PayWhatYouEarn.mp4",
+    concept:
+      "The film follows one runner's 5K from start to finish, then to a secret location where she collects the tracksuit she just earned, literally paying what she ran.",
+  },
+  {
+    name: "Maranoia X NSLB X Nike",
+    description:
+      "An NSLB and Nike event held before the 2026 TCS London Marathon, a single day of sprint and endurance races for a shot at four £1,000 prizes.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234481/maranoia.jpg",
+    url: "https://www.instagram.com/reel/DXto2xNCBNZ/?srtk=ZWIxa3hhejV3MXBm",
+    slug: "maranoia-x-nslb-x-nike",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234481/maranoia.mp4",
+    concept:
+      "NSLB brings people together around self improvement beyond the gym, and this one was run with Nike ahead of the 2026 TCS London Marathon. 140 runners were picked at random to race for a shot at four £1,000 prizes, with invite only relays rounding things out. I wanted to capture the whole day, not just the races but everything around them, the NSLB pop up, the recovery stations, the food, everything that made it feel like a proper hub rather than just a race.",
+  },
+  {
+    name: "Endure Run Club | Marrakesh Half Marathon",
+    description:
+      "Endure Run Club at the Marrakesh Half Marathon, raising money for Salaam charity.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234454/MarakeshMarathon.jpg",
+    url: "",
+    slug: "endure-run-club-marrakesh-half-marathon",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792234454/MarakeshMarathon.mp4",
+    concept:
+      "I wanted this one to just capture the vibe of race day, the energy of the course and the Endure runners taking it on for Salaam.",
+  },
+  {
     name: "The Unity Cup | Mini Doc",
     description:
       "A cinematic recap of Unity Cup 2026, capturing the emotion, energy and community behind the event. More than a football match, the film celebrates unity, remembrance and the legacy of four brothers who inspired the occasion.",

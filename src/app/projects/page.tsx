@@ -34,7 +34,9 @@ const structuredData = {
         name: item.name,
         description: item.description,
         image: item.img,
-        url: item.url,
+        url: item.slug
+          ? `${SITE_URL}/projects/${item.slug}`
+          : item.url,
         creator: { "@id": `${SITE_URL}/#business` },
       },
     })),
