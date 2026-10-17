@@ -2,9 +2,13 @@ import type { MetadataRoute } from "next";
 
 import { SITE_URL as siteUrl } from "@/lib/site";
 import { getAllPosts } from "@/lib/blog";
+import { PORTFOLIO_CONTENT } from "@/content/portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
+  const projectPages = PORTFOLIO_CONTENT.filter(
+    (item) => item.slug && item.video
+  );
 
   return [
     {
@@ -30,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.date),
       changeFrequency: "yearly" as const,
       priority: 0.5,
+    })),
+    ...projectPages.map((item) => ({
+      url: `${siteUrl}/projects/${item.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
     })),
     {
       url: `${siteUrl}/privacy`,

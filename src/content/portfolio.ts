@@ -1,4 +1,16 @@
-export const PORTFOLIO_CONTENT = [
+export type PortfolioItem = {
+  name: string;
+  description: string;
+  img: string;
+  url: string;
+  // Optional: items with both set get their own case-study page at
+  // /projects/[slug], with the video embedded and playable on-page
+  // instead of only linking out to YouTube/Instagram.
+  slug?: string;
+  video?: string;
+};
+
+export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   {
     name: "The Unity Cup | Mini Doc",
     description:
@@ -19,6 +31,9 @@ export const PORTFOLIO_CONTENT = [
       "Promo for the World Cup Activation event hosted by Future Culture",
     img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
     url: "https://www.youtube.com/watch?v=-BoMOUpRX40",
+    slug: "future-culture-x-world-cup-screening",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1792198089/GamingVideo_v2-3.mp4",
   },
   {
     name: "Youtube Series | Road to London Marathon",
