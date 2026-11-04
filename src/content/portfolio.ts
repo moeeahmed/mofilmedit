@@ -158,6 +158,21 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
       "I wanted this one to just capture the vibe of race day, the energy of the course and the Endure runners taking it on for Salaam.",
   },
   {
+    name: "Dkhoni | Tones of Beauty 2026",
+    description:
+      "Capturing Dkhoni's stand at Tones of Beauty 2026, ExCeL London, for use on video panels at future exhibitions and shows.",
+    img: "https://res.cloudinary.com/z6gspcmd/video/upload/so_2/v1793754550/Dkhoni_TOB_v2.jpg",
+    url: "",
+    slug: "dkhoni-tones-of-beauty-2026",
+    uploadDate: "2026-07-01",
+    duration: "PT40S",
+    video:
+      "https://res.cloudinary.com/z6gspcmd/video/upload/q_auto,f_auto/v1793754550/Dkhoni_TOB_v2.mp4",
+    orientation: "portrait",
+    concept:
+      "Dkhoni came to Tones of Beauty 2026 at ExCeL London to put their fragrances in front of a new audience, so I filmed the stand itself, the scents, and people's reactions trying them for the first time. The film was built to be reused, something they could put up on video panels at future exhibitions to draw people in before they'd even spoken to anyone on the stand.",
+  },
+  {
     name: "The Unity Cup | Mini Doc",
     description:
       "A cinematic recap of Unity Cup 2026, capturing the emotion, energy and community behind the event. More than a football match, the film celebrates unity, remembrance and the legacy of four brothers who inspired the occasion.",
