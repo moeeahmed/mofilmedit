@@ -1,6 +1,15 @@
+export const PORTFOLIO_CATEGORIES = [
+  "Sports",
+  "Events & Brand",
+  "Running",
+] as const;
+
+export type PortfolioCategory = (typeof PORTFOLIO_CATEGORIES)[number];
+
 export type PortfolioItem = {
   name: string;
   description: string;
+  category: PortfolioCategory;
   img: string;
   url: string;
   // Optional: items with both set get their own case-study page at
@@ -24,6 +33,7 @@ export type PortfolioItem = {
 export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   {
     name: "Maranoia | NSLB X Nike",
+    category: "Running",
     description:
       "An NSLB and Nike event held before the 2026 TCS London Marathon, a single day of sprint and endurance races for a shot at four £1,000 prizes.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234481/maranoia.jpg",
@@ -38,6 +48,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Pana Run Club | Hackney Half bLOCKparty",
+    category: "Running",
     description:
       "Pana Run Club's block party after the Hackney Half Marathon, capturing the atmosphere of the celebration.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234913/pananaonana.jpg",
@@ -52,6 +63,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Future Culture X World Cup Activation",
+    category: "Events & Brand",
     description:
       "Promo for the World Cup Activation event hosted by Future Culture",
     img: "https://djpguts9gwm3x.cloudfront.net/V5s8Eu3S7RxWtB43.jpg",
@@ -66,6 +78,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "The Shirt Vault X Rio Cardines",
+    category: "Sports",
     description:
       "Capturing The  Shirt Vault delivery of the debut shirt of Crystal Palace & Trinidad and Tobago International, Rio Cardines ",
     img: "https://djpguts9gwm3x.cloudfront.net/2EGycqhdJmMQ2O52.jpg",
@@ -81,6 +94,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Hyrox | Rotterdam 2026",
+    category: "Running",
     description:
       "A fast-paced recap of HYROX Rotterdam 2026, built to capture the energy and emotion of race day.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234432/hyrox.jpg",
@@ -95,6 +109,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Youtube Series | Road to London Marathon",
+    category: "Running",
     description:
       "3 part series following the journey of a Rudy (Founder of RoCUP and Contraband) preparing for the London Marathon, showcasing training, nutrition, and mental preparation.",
     img: "https://djpguts9gwm3x.cloudfront.net/a2OIV224N1MW3vrz.jpg",
@@ -102,6 +117,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "CEI Bridal",
+    category: "Events & Brand",
     description:
       "A campaign film for CÉI Bridal, the contemporary bridal brand rooted in Somali heritage and craftsmanship.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234951/CEI.jpg",
@@ -117,6 +133,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Birmingham United X Uber",
+    category: "Sports",
     description:
       "A collaboration between Uber and Birmingham United, following two young footballers and how long journeys to training affect their performance.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234947/BU_Uber_HD.jpg",
@@ -131,6 +148,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Endure Run Club | Pay What You Earn",
+    category: "Running",
     description:
       "For Endure Run Club's limited tracksuit drop, your price was set by your own 5K time, down to the second.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234901/PayWhatYouEarn.jpg",
@@ -145,6 +163,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Endure Run Club | Marrakesh Half Marathon",
+    category: "Running",
     description:
       "Endure Run Club at the Marrakesh Half Marathon, raising money for Salaam charity.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/v1792234454/MarakeshMarathon.jpg",
@@ -159,6 +178,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Dkhoni | Tones of Beauty 2026",
+    category: "Events & Brand",
     description:
       "Capturing Dkhoni's stand at Tones of Beauty 2026, ExCeL London, for use on video panels at future exhibitions and shows.",
     img: "https://res.cloudinary.com/z6gspcmd/video/upload/so_2/v1793754550/Dkhoni_TOB_v2.jpg",
@@ -174,6 +194,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "The Unity Cup | Mini Doc",
+    category: "Sports",
     description:
       "A cinematic recap of Unity Cup 2026, capturing the emotion, energy and community behind the event. More than a football match, the film celebrates unity, remembrance and the legacy of four brothers who inspired the occasion.",
     img: "https://djpguts9gwm3x.cloudfront.net/ad3xUA0zS94v.jpg",
@@ -181,6 +202,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Endure Run Club | Birmingham Half Marathon Sign up Activation",
+    category: "Running",
     description:
       "Promotional piece for the Endure Run Club to get members involved in the Birmingham Half",
     img: "https://djpguts9gwm3x.cloudfront.net/lJddT9vtyUml2Em6.jpg",
@@ -188,6 +210,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Top Baller X Deestroying",
+    category: "Sports",
     description:
       "Top Baller x Deestroying U16 1v1 event. The next generation of football talent go head-to-head, showcasing skill, flair, and passion in a high-energy competition.",
     img: "https://djpguts9gwm3x.cloudfront.net/4j74vAYY0dBA4M9r.jpg",
@@ -195,6 +218,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Puma X Represent Event",
+    category: "Events & Brand",
     description:
       "Represent x PUMA FW25 host a football event at Battersea Power Station celebrating the fusion of sport and style through their latest collaborative collectionrtals.",
     img: "https://djpguts9gwm3x.cloudfront.net/f04Hqg651vSEJYuo.jpg",
@@ -202,6 +226,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Monzz x Platinum Services",
+    category: "Events & Brand",
     description:
       "Platinum Services teamed up with Monzz, working together to inspire and guide students through the journey of getting into higher education",
     img: "https://djpguts9gwm3x.cloudfront.net/6sqrFj3Kvb0HS51j.jpg",
@@ -209,6 +234,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Marathon Prep Ad",
+    category: "Running",
     description:
       "A look into the start of a marathon prep journey featuring a VO₂ max test, track work, and road runs toward a 2hr 30min goal.",
     img: "https://djpguts9gwm3x.cloudfront.net/Vt87Fs8MsCWvZESR.jpg",
@@ -216,6 +242,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Liverpool vs Everton WSL",
+    category: "Sports",
     description:
       "A look at the WSL Merseyside Derby | Liverpool vs Everton, where passion, rivalry, and top-tier football meet as both sides battle for city pride.",
     img: "https://djpguts9gwm3x.cloudfront.net/ltF6tVRcIzI6KF8i.jpg",
@@ -223,6 +250,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "The Shirt Vault X Rumarn Burrell",
+    category: "Sports",
     description:
       "Capturing the  Shirt Vault Framing and delivery of the debut shirt of QPR & Jamaica International, Rumarn Burrell ",
     img: "https://djpguts9gwm3x.cloudfront.net/GoRJ21Dfx7498ov3.jpg",
@@ -230,6 +258,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "PK Humble | Baller League | S2 MD1",
+    category: "Sports",
     description:
       "PK Humbles takes the stage at the Copperbox Arena for Yanited, for the first match day of the Baller League season.",
     img: "https://djpguts9gwm3x.cloudfront.net/h0tC525kPojwR6R7.jpg",
@@ -237,6 +266,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "ByTheBars 1v1 Calisthenics",
+    category: "Sports",
     description:
       "A look inside a 1v1 calisthenics event hosted by ByTheBars showcasing strength, control, and creativity as athletes go head-to-head in raw street-style competition.",
     img: "https://djpguts9gwm3x.cloudfront.net/LsRWG2205uQWdA4a.jpg",
@@ -244,6 +274,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Bham UTD X Vesey Nations Cup",
+    category: "Sports",
     description:
       "6 nations, one city, one beautiful game. Custom national jerseys, real pride, pure football energy.",
     img: "https://djpguts9gwm3x.cloudfront.net/VRJMrb0ec4ZUP8EL.jpg",
@@ -251,6 +282,7 @@ export const PORTFOLIO_CONTENT: PortfolioItem[] = [
   },
   {
     name: "Ibraheem Spider Sulaimaan🕷️",
+    category: "Sports",
     description:
       "Ibraheem ‘Spider’ Sulaimaan sharpens his craft at the open training session ahead of his 7th fight. Focused, Hungry and Ready for war.",
     img: "https://djpguts9gwm3x.cloudfront.net/WFa4Gk774zzDLlWn.jpg",

@@ -1,8 +1,28 @@
+"use client";
+
+import { useState } from "react";
 import PortfolioCard from "@/components/portfolio-card";
 import { ScrollView } from "@/components/scroll-view";
-import { PORTFOLIO_CONTENT } from "@/content/portfolio";
+import {
+  PORTFOLIO_CONTENT,
+  PORTFOLIO_CATEGORIES,
+  type PortfolioCategory,
+} from "@/content/portfolio";
+import { cn } from "@/lib/utils";
+
+const FILTERS = ["All", ...PORTFOLIO_CATEGORIES] as const;
+type Filter = (typeof FILTERS)[number];
 
 export default function PortfolioSection() {
+  const [filter, setFilter] = useState<Filter>("All");
+
+  const items =
+    filter === "All"
+      ? PORTFOLIO_CONTENT
+      : PORTFOLIO_CONTENT.filter(
+          (item) => item.category === (filter as PortfolioCategory)
+        );
+
   return (
     <section className="py-32 md:py-48" id="portfolio">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
@@ -26,9 +46,27 @@ export default function PortfolioSection() {
           </ScrollView>
         </div>
 
+        <div className="mt-10 flex flex-wrap gap-3">
+          {FILTERS.map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setFilter(option)}
+              className={cn(
+                "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition-colors",
+                filter === option
+                  ? "border-foreground bg-foreground text-background"
+                  : "border-input text-muted-foreground hover:border-foreground hover:text-foreground"
+              )}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
         <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2">
-          {PORTFOLIO_CONTENT.map((item, index) => (
-            <PortfolioCard key={index} card={item} />
+          {items.map((item, index) => (
+            <PortfolioCard key={`${filter}-${index}`} card={item} />
           ))}
         </div>
       </div>
