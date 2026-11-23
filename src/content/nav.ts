@@ -19,4 +19,8 @@ export const NAV_LINKS = [
     name: "Blog",
     href: "/blog",
   },
+  {
+    name: "Book",
+    href: "/book",
+  },
 ];

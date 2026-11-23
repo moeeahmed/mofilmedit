@@ -66,6 +66,13 @@ export default function PrivacyPage() {
             in your message.
           </p>
           <p>
+            <strong className="text-foreground">Booking form.</strong> If you
+            request a booking I collect your name, email address, phone
+            number, business name and website, and the project details,
+            location and dates you give me. I use them to reply to your
+            enquiry, plan the shoot and send you a copy of your request.
+          </p>
+          <p>
             <strong className="text-foreground">Website usage.</strong> I use
             Vercel Analytics and Vercel Speed Insights to understand how the
             site is used and how fast it loads. These are designed to be

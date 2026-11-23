@@ -2,6 +2,8 @@ import { ScrollView } from "@/components/scroll-view";
 import { SERVICES_LIST } from "@/content/services";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function ServicesSection() {
   return (
@@ -86,6 +88,22 @@ export default function ServicesSection() {
             );
           })}
         </div>
+
+        <ScrollView>
+          <div className="mt-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <p className="max-w-xl text-foreground/70">
+              Share your brief and I&apos;ll get back to you within one working
+              day to talk through your project.
+            </p>
+            <Link
+              href="/book"
+              className="group inline-flex items-center gap-2 self-start border-b border-foreground/40 pb-1 text-sm uppercase tracking-[0.2em] hover:border-foreground"
+            >
+              Book a shoot
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </ScrollView>
       </div>
     </section>
   );
